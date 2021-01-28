@@ -1,0 +1,8 @@
+/**app.wxss**/
+.page {
+  height: 100%;
+    /* 小程序中，窗口高度固定为100vw，将窗口宽度平均分成100份，1份是1vw */
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+} 

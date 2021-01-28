@@ -1,0 +1,5 @@
+/* pages/my/index.wxss */
+.ext_cells{
+  display: block;
+  width: 100%;
+}

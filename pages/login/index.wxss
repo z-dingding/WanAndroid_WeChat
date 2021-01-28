@@ -1,0 +1,14 @@
+
+.img_logo{
+  display: block;
+  width: 200rpx;
+  height: 200rpx;
+   margin: 0 auto;
+}
+.view_loginArea{
+  /* 父元素flex,子元素auto，可以居中 */
+    margin: 200rpx auto;
+}
+.btn_login{
+  margin-top: 30rpx;
+}

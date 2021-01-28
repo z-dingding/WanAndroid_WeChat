@@ -1,0 +1,17 @@
+<mp-toptips msg="{{error}}" type ="error" show="{{error}}"></mp-toptips>
+<view >
+<view class="view_loginArea">
+  <image src="" class="img_logo" src="/images/logo.png" mode="aspectFit"></image>
+    <mp-form id="form" rules="{{rules_Array}}"  models ="{{formData}}" >
+      <mp-cells >
+        <mp-cell prop="account" title="账号:">
+          <input placeholder="请输入账号" focus="true" bindinput="formInputChange" data-field="account"  />
+        </mp-cell>
+        <mp-cell prop="pwd" title="密码:">
+          <input placeholder="请输入密码"  password="true" bindinput="formInputChange" data-field="pwd"/>
+        </mp-cell>
+      </mp-cells>
+   <button type="primary" bindtap="loginEvent" class="btn_login"  loading="{{isShowLoading}}">登录</button>
+    </mp-form>
+</view>
+</view>
