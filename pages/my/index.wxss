@@ -1,5 +1,28 @@
 /* pages/my/index.wxss */
-.ext_cells{
-  display: block;
-  width: 100%;
+.head{
+  height: 400rpx;
+  background-color: #07C160;
+  display: flex;
+}
+.head_user{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.userImg{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}
+.username{
+  padding: 0 20rpx;
+ font-size: 40rpx;
+ color: white;
+}
+.userRank{
+  padding: 0 20rpx;
+  font-size: 30rpx;
+  color: white;
 }

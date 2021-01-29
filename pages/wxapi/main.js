@@ -39,6 +39,12 @@ banner:()=>{
 //我的积分接口
 integral:() =>{
   return request("lg/coin/userinfo/json","get",{})
+},
+//积分获取列表接口
+integralList:(page) =>{
+  return request('lg/coin/list/'+page+'/json',"get",{})
+
 }
+
 
 }

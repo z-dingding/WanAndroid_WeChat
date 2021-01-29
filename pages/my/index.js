@@ -8,24 +8,19 @@ Page({
    */
   data: {
     //我的积分
-    integralNum: 0
-
+    integralNum: 0,
+    //用户名
+    username:'',
+    //等级
+    level:'',
+    //排名
+    rank:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _this = this;
-    wxapi.integral().then(function (res) {
-      if (res.data.errorCode == 0) {
-        _this.setData({
-          integralNum:res.data.data.coinCount
-        })
-      } else {
-        app.checkCodeDeal(res.data.errorCode,res.data.errorMsg)
-      }
-    })
   },
 
   /**
@@ -39,6 +34,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let _this = this ;
+    //首次进入我的页面,登录失效,登录页面返回请求我的积分(该接口需要登录后请求)
+    if(this.data.integralNum == 0 ){
+      wxapi.integral().then(function (res) {
+        if (res.data.errorCode == 0) {
+          _this.setData({
+            integralNum:res.data.data.coinCount,
+            username:res.data.data.username,
+            level:res.data.data.level,
+            rank:res.data.data.rank,
+          })
+        } else {
+          app.checkCodeDeal(res.data.errorCode,res.data.errorMsg)
+        }
+      })
+    }
 
   },
 
@@ -97,7 +108,12 @@ Page({
       let field = e.currentTarget.dataset.field
       switch (field) {
         case "integral":
-
+          if(this.data.integralNum > 0){
+            wx.navigateTo({
+              url: '../integral/integral?integral='+this.data.integralNum
+            })
+          }
+     
           break;
         case "share":
           current = "我的分享"

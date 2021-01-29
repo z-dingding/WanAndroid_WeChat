@@ -1,0 +1,66 @@
+/* pages/integral/integral.wxss */
+.integral_bg{
+  width: 100%;
+  height: 400rpx;
+  background-color: #07C160;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.integral_view{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 80rpx;
+  color: white;
+  font-weight: bold;
+}
+
+.scrollview {
+  width:100%;
+  /* scrollview需要指定高度，一般都动态计算，这里先写死 */
+  height: 806rpx;
+  color:transparent;
+  position: relative;
+  top: 400rpx;
+  left: 0;
+}
+.integral_list{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+
+.integral_item{
+display: flex;
+flex-direction: row;
+/* 两端平分 */
+justify-content: space-between;
+padding: 40rpx 20rpx;
+}
+
+.integral_item_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.integral_item_left .integral_item_left_integral{
+  color: black;
+}
+.integral_item_left .integral_item_left_time{
+  color: gray;
+  font-size: 20rpx;
+  padding: 10rpx 0;
+}
+.integral_item_right{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  color: #07C160;
+}

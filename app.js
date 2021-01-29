@@ -26,9 +26,7 @@ App({
         content: errorMsg,
         success (touch) {
           if (touch.confirm) {
-    
               _this.goLoginPageTimeOut();
-
           } 
       }
       })

@@ -1,5 +1,16 @@
 <!--pages/my/index.wxml-->
 <view >
+    <view class="head">
+       <view class="head_user">
+       <image src="../../images/logo_round.png" class="userImg" mode="aspectFit"></image>
+       <text class="username">{{username}}</text>
+       <view style="flex-direction:row;">
+        <text class="userRank">等级:{{level}}</text>
+       <text  class="userRank">排名:{{rank}}</text>
+       </view>
+       
+      </view>
+    </view>
     <mp-cells>
             <mp-cell link hover  value="我的积分" footer="{{integralNum}}" data-field="integral" bindtap="checkPermission">
               <!-- slot="icon"表示左侧图标slot -->

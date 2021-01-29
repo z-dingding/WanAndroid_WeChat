@@ -1,16 +1,16 @@
 {
   "pages": [
-   
-    "pages/index/index",
     "pages/my/index",
+    "pages/index/index",
     "pages/system/index",
     "pages/answer/index",
     "pages/login/index",
-    "pages/testdemo/index"
+    "pages/testdemo/index",
+    "pages/integral/integral"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#07C160",
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },
@@ -24,7 +24,7 @@
     "selectedColor": "#07C160",
     "borderStyle": "white",
     "backgroundColor": "#f6f0e3",
-    "position":"bottom",
+    "position": "bottom",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -52,5 +52,4 @@
       }
     ]
   }
-
 }

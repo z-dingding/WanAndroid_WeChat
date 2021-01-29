@@ -1,0 +1,25 @@
+<!--pages/integral/integral.wxml-->
+<view >
+  <!-- 我的积分展示 -->
+  <view class="integral_bg">
+    <view class="integral_view">
+      <text>{{integral}}</text>
+    </view>
+  </view>
+  <!-- 签到积分列表 -->
+
+    <scroll-view class="scrollview" scroll-y="true"  bindscrolltolower="lower"
+    refresher-enabled="true" bindrefresherrefresh="onRefersh" refresher-triggered="{{isRefresh}}"> 
+      <view class="integral_list" wx:if="{{itemList.length > 0}}">
+      <view class="integral_item" wx:for="{{itemList}}" wx:key="*this">
+        <view class="integral_item_left">
+          <text class="integral_item_left_integral">{{item.desc}}</text>
+          <text class="integral_item_left_time">{{item.date}}</text>
+        </view>
+        <view class="integral_item_right">
+          <text class="integral_item_right_addition">+{{item.coinCount}}</text>
+        </view>
+      </view>
+    </view>
+    </scroll-view>
+</view>
