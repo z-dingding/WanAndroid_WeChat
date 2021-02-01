@@ -3,6 +3,18 @@
   height: 400rpx;
   background-color: #07C160;
   display: flex;
+  flex-direction: column;
+}
+.head_function{
+padding: 10rpx 40rpx 0rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.head_function_img{
+  width:60rpx ;
+  height: 60rpx;
 }
 .head_user{
   margin: auto;

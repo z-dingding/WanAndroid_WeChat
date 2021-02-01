@@ -157,4 +157,17 @@ Page({
     })
 
   },
+  //积分说明
+  jumptowebview:function(){
+    wx.navigateTo({
+      url: '../webview/webview',
+    })
+  },
+  //积分排行榜
+  jumptoranking(){
+    wx.navigateTo({
+      url: '../ranking/ranking',
+    })
+  }
+
 })

@@ -1,0 +1,38 @@
+/* pages/ranking/ranking.wxss */
+
+.ranking_item{
+  height: 120rpx;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+ padding: 20rpx 30rpx;
+}
+.ranking{
+  min-width: 140rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.ranking_left{
+color: gray;
+width: 40rpx;
+height: 40rpx;
+display: block;
+text-align: center;
+}
+.ranking_left_img{
+  width: 60rpx;
+  height: 60rpx;
+  display: block;
+  text-align: center;
+}
+
+.ranking_right{
+  color: black;
+  margin-left: 15rpx;
+}
+.rankingNum{
+  color: #07C160;
+}

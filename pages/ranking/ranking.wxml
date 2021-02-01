@@ -1,0 +1,23 @@
+<!--pages/ranking/ranking.wxml-->
+<view class="pg_content">
+  <block wx:if="{{itemList.length > 0}}">
+    <view class="ranking_item" wx:for="{{itemList}}" wx:key="*this">
+      <view class="ranking">
+        <block wx:if="{{item.rank >3}}">
+          <text class="ranking_left">{{item.rank}}</text>
+        </block>
+        <block wx:elif="{{item.rank == 1}}">
+          <image class="ranking_left_img" mode="aspectFit" src="../../images/ranking_champion.png"></image>
+        </block>
+        <block wx:elif="{{item.rank == 2}}">
+          <image class="ranking_left_img" mode="aspectFit" src="../../images/ranking_runnerUp.png"></image>
+        </block>
+        <block wx:else>
+          <image class="ranking_left_img" mode="aspectFit" src="../../images/ranking_bronze.png"></image>
+        </block>
+        <text class="ranking_right">{{item.username}}</text>
+      </view>
+      <view class="rankingNum">{{item.coinCount}}</view>
+    </view>
+  </block>
+</view>

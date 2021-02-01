@@ -1,17 +1,20 @@
 {
   "pages": [
-    "pages/my/index",
     "pages/index/index",
+    "pages/my/index",
     "pages/system/index",
     "pages/answer/index",
     "pages/login/index",
     "pages/testdemo/index",
-    "pages/integral/integral"
+    "pages/integral/integral",
+    "pages/webview/webview",
+    "pages/ranking/ranking",
+    "pages/homesearch/homesearch"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#07C160",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "玩安卓",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

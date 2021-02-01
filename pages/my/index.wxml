@@ -1,26 +1,32 @@
 <!--pages/my/index.wxml-->
-<view >
-    <view class="head">
-       <view class="head_user">
-       <image src="../../images/logo_round.png" class="userImg" mode="aspectFit"></image>
-       <text class="username">{{username}}</text>
-       <view style="flex-direction:row;">
+<view>
+  <view class="head">
+    <view class="head_function" >
+      <image class="head_function_img" mode="aspectFit" src="../../images/mine_scanCode.png" bindtap="scanCodeEvent"></image>
+      <image  class="head_function_img" mode="aspectFit" src="../../images/mine_message.png"></image>
+    </view>
+    <view class="head_user">
+      <image src="../../images/logo_round.png" class="userImg" mode="aspectFit"></image>
+      <text class="username">{{username}}</text>
+      <view style="flex-direction:row;">
         <text class="userRank">等级:{{level}}</text>
-       <text  class="userRank">排名:{{rank}}</text>
-       </view>
-       
+        <text class="userRank">排名:{{rank}}</text>
       </view>
     </view>
-    <mp-cells>
-            <mp-cell link hover  value="我的积分" footer="{{integralNum}}" data-field="integral" bindtap="checkPermission">
-              <!-- slot="icon"表示左侧图标slot -->
-                <image slot="icon" src="../../images/mine_integral.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
-            </mp-cell>
-            <mp-cell link hover  value="我的分享"   data-field="share" bindtap="checkPermission">
-                <image slot="icon" src="../../images/mine_share.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
-            </mp-cell>
-            <mp-cell link hover  value="我的收藏"  data-field="collection" bindtap="checkPermission">
-                <image slot="icon" src="../../images/mine_collection.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
-            </mp-cell>
+  </view>
+  <mp-cells>
+    <mp-cell link hover value="我的积分" footer="{{integralNum}}" data-field="integral" bindtap="checkPermission">
+      <!-- slot="icon"表示左侧图标slot -->
+      <image slot="icon" src="../../images/mine_integral.png"
+        style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+    </mp-cell>
+    <mp-cell link hover value="我的分享" data-field="share" bindtap="checkPermission">
+      <image slot="icon" src="../../images/mine_share.png"
+        style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+    </mp-cell>
+    <mp-cell link hover value="我的收藏" data-field="collection" bindtap="checkPermission">
+      <image slot="icon" src="../../images/mine_collection.png"
+        style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+    </mp-cell>
   </mp-cells>
 </view>

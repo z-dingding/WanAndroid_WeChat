@@ -1,12 +1,33 @@
 <!--index.wxml-->
 <view class="container">
-<mp-searchbar placeholder="请输入搜索内容"  search="{{search}}"></mp-searchbar>
-<swiper wx:if="{{banners.length > 0}}" indicator-dots="true" autoplay="true" circular="true" previous-margin="40rpx" next-margin="40rpx">
-<block  wx:for="{{banners}}"  wx:key="*this">
-  <swiper-item>
-  <image src="{{item.imagePath}}" class="banner_image" mode="widthFix"></image>
-  </swiper-item>
-</block>
-
-</swiper>
+  <!-- 搜索区域 -->
+  <view class="search" bindtap="search">
+    <image class="search_img" src="../../images/home_search.png" mode="aspectFit"></image>
+    <text  class="search_text">搜索</text>
+  </view>
+  <swiper wx:if="{{banners.length > 0}}" indicator-dots="true" autoplay="true" circular="true" previous-margin="40rpx"
+    next-margin="40rpx">
+    <block wx:for="{{banners}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item.imagePath}}" class="banner_image" mode="widthFix"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 置顶文章区域 -->
+  <view class="topartical" wx:for="{{topArticalList}}" wx:key="*this">
+    <view class="topartical_toparea">
+      <view class="topartical_toparea_left">
+        <view class="artical_author artical_smallsize">{{item.author}}</view>
+        <view class="artical_fromsite artical_smallsize" wx:if="{{item.tags.length > 0}}">{{item.tags[0].name}}</view>
+      </view>
+      <view class="artical_date artical_smallsize">{{item.niceDate}}</view>
+    </view>
+    <view class="artical_title"><text>{{item.title}}</text> </view>
+    <view class="topartical_bottomarea artical_smallsize">
+      <view class="topartical_bottomarea_left">置顶</view>
+      <view>{{item.chapterName}}.{{item.superChapterName}}</view>
+    </view>
+  </view>
+  <!-- 其他文章区域 -->
+  <view class="oherartical"></view>
 </view>

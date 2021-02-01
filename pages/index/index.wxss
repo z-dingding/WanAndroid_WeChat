@@ -1,5 +1,73 @@
 /**index.wxss**/
+
+
+.search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   flex: 1;
+  height: 60rpx;
+  border: #dbdbdb solid 1px;
+  border-radius: 10rpx;
+  margin: 20rpx 30rpx;
+}
+.search_img{
+ width: 30rpx;
+ height: 30rpx;
+}
+.search_text{
+  color: gray;
+  margin-left: 10rpx;
+}
 .banner_image{
   width: 100%;
   height: 100%;
+}
+
+/* 置顶文章相关样式 */
+.topartical{
+ padding: 40rpx 30rpx;
+}
+
+.topartical_toparea{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.topartical_toparea_left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+ .artical_smallsize{
+  font-size:25rpx ;
+  color: gray;
+}
+.artical_fromsite{
+  color: #07C160;
+  border:  #07C160 2px solid;
+  padding: 4rpx;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+}
+.artical_title{
+  overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+  display:-webkit-box; 
+   -webkit-line-clamp:2;
+   -webkit-box-orient:vertical;
+  color: black;
+}
+.topartical_bottomarea{
+  display: flex;
+  flex-direction: row;
+  margin-top: 5rpx;
+}
+.topartical_bottomarea_left{
+  font-size:25rpx;
+  color: #D94E2E;
+  padding-right: 15rpx;
+
 }

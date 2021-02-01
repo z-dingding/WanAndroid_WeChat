@@ -5,6 +5,12 @@
     <view class="integral_view">
       <text>{{integral}}</text>
     </view>
+    <view class="integral_other">
+      <!-- 排行榜 -->
+      <image class="integral_funIcon" src="../../images/integral_ranking.png" mode="aspectFit" bindtap="jumptoranking"></image>
+      <!-- 积分说明 -->
+      <image class="integral_funIcon" src="../../images/integral_requestMark.png" mode="aspectFit" bindtap="jumptowebview"></image>
+    </view>
   </view>
   <!-- 签到积分列表 -->
 

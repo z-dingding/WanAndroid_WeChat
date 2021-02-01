@@ -10,18 +10,17 @@ Page({
     //我的积分
     integralNum: 0,
     //用户名
-    username:'',
+    username: '',
     //等级
-    level:'',
+    level: '',
     //排名
-    rank:''
+    rank: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -34,19 +33,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let _this = this ;
+    let _this = this;
     //首次进入我的页面,登录失效,登录页面返回请求我的积分(该接口需要登录后请求)
-    if(this.data.integralNum == 0 ){
+    if (this.data.integralNum == 0) {
       wxapi.integral().then(function (res) {
         if (res.data.errorCode == 0) {
           _this.setData({
-            integralNum:res.data.data.coinCount,
-            username:res.data.data.username,
-            level:res.data.data.level,
-            rank:res.data.data.rank,
+            integralNum: res.data.data.coinCount,
+            username: res.data.data.username,
+            level: res.data.data.level,
+            rank: res.data.data.rank,
           })
         } else {
-          app.checkCodeDeal(res.data.errorCode,res.data.errorMsg)
+          app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
         }
       })
     }
@@ -99,8 +98,7 @@ Page({
           // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
           acceptDataFromOpenedPage: function (data) {
             //登录成功的回调接口
-            if (data.loginResult == "success") {
-            }
+            if (data.loginResult == "success") {}
           },
         }
       })
@@ -108,12 +106,12 @@ Page({
       let field = e.currentTarget.dataset.field
       switch (field) {
         case "integral":
-          if(this.data.integralNum > 0){
+          if (this.data.integralNum > 0) {
             wx.navigateTo({
-              url: '../integral/integral?integral='+this.data.integralNum
+              url: '../integral/integral?integral=' + this.data.integralNum
             })
           }
-     
+
           break;
         case "share":
           current = "我的分享"
@@ -123,5 +121,20 @@ Page({
           break;
       }
     }
+  },
+  /**
+   * 扫一扫
+   */
+  scanCodeEvent(e) {
+    // 允许从相机和相册扫码
+    wx.scanCode({
+      success(res) {
+        wx.showModal({
+          showCancel: false,
+          title: '提示',
+          content:'扫码结果为:'+res.result
+        })
+      }
+    })
   }
 })

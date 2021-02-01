@@ -1,0 +1,2 @@
+<!--pages/homesearch/homesearch.wxml-->
+<mp-searchbar placeholder="请输入搜索内容" search="{{search}}" ></mp-searchbar>

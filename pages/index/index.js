@@ -5,7 +5,9 @@ const wxapi =require("../wxapi/main")
 
 Page({
   data: {
-    banners:[]
+    banners:[],
+    //首页置顶数据
+    topArticalList:[],
   },
   onLoad() {
     //绑定search函数到当前page(固定写法)
@@ -20,18 +22,25 @@ Page({
         "banners" : res.data.data
       })
     }else{
-      wx.showModal({
-        title:'提示',
-        showCancel:false,
-        content:res.data.errorMsg
+      app.checkCodeDeal(res.data.errorCode,res.data.errorMsg)
+    }
+  })
+  //请求首页置顶数据
+  wxapi.topArtical().then(function(res){
+    if(res.data.errorCode == 0 ){
+      _this.setData({
+        "topArticalList" : res.data.data
       })
+    }else{
+      app.checkCodeDeal(res.data.errorCode,res.data.errorMsg)
     }
   })
   },
-  search:function(value){
-   return new Promise((resolve, reject) => {
-     //实时(500ms)执行网络请求
-   })
-  }
+  search(e){
+    wx.navigateTo({
+      url: '../homesearch/homesearch',
+    })
+  },
+ 
 
 })

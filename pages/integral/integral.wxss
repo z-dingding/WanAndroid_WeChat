@@ -64,3 +64,17 @@ padding: 40rpx 20rpx;
   align-items: center;
   color: #07C160;
 }
+
+
+.integral_other{
+  height: 125rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  padding: 40rpx 30rpx;
+}
+
+.integral_other .integral_funIcon{
+  width: 50rpx;
+  height: 50rpx;
+}
