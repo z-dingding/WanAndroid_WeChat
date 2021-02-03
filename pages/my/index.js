@@ -37,6 +37,7 @@ Page({
     //首次进入我的页面,登录失效,登录页面返回请求我的积分(该接口需要登录后请求)
     if (this.data.integralNum == 0) {
       wxapi.integral().then(function (res) {
+      
         if (res.data.errorCode == 0) {
           _this.setData({
             integralNum: res.data.data.coinCount,
@@ -135,6 +136,11 @@ Page({
           content:'扫码结果为:'+res.result
         })
       }
+    })
+  },
+  messageEevent : function(){
+    wx.navigateTo({
+      url: '../message/index',
     })
   }
 })

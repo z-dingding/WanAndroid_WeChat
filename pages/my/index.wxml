@@ -2,8 +2,10 @@
 <view>
   <view class="head">
     <view class="head_function" >
+      <!-- 扫一扫 -->
       <image class="head_function_img" mode="aspectFit" src="../../images/mine_scanCode.png" bindtap="scanCodeEvent"></image>
-      <image  class="head_function_img" mode="aspectFit" src="../../images/mine_message.png"></image>
+      <!-- 我的消息 -->
+      <image  class="head_function_img" mode="aspectFit" src="../../images/mine_message.png" bindtap="messageEevent"></image>
     </view>
     <view class="head_user">
       <image src="../../images/logo_round.png" class="userImg" mode="aspectFit"></image>

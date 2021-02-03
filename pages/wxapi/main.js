@@ -36,9 +36,17 @@ login:(account,pwd) =>{
 banner:()=>{
   return request("banner/json","get",{})
 },
-//首页置顶
+//首页置顶数据
 topArtical:()=>{
  return request("article/top/json","get",{})
+},
+//搜索接口
+search:(pageIndex,searchKey)=>{
+  return request('article/query/'+pageIndex+'/json',"post",{k:searchKey})
+},
+//热门搜索数据
+hotSearch:()=>{
+  return request('hotkey/json',"get",{})
 },
 //我的积分接口
 integral:() =>{
@@ -51,7 +59,13 @@ integralList:(page) =>{
 //积分排行榜接口
 integralRanking:(indexPage) =>{
   return request('coin/rank/'+indexPage+'/json',"get",{})
+},
+//我的消息-新消息(失效)
+messageNew :() =>{
+  return request('message/lg/list/1')
+},
+//我的消息-历史消息(失效)
+messageHistroy :()=>{
+  return request('message/lg/history/list/1')
 }
-
-
 }

@@ -1,2 +1,18 @@
 <!--pages/homesearch/homesearch.wxml-->
-<mp-searchbar placeholder="请输入搜索内容" search="{{search}}" ></mp-searchbar>
+<view>
+<!-- 搜索区域 -->
+ <view class="searchArea">
+   <image bindtap="searchEvent" class="searchimg" src="../../images/home_search.png" mode="scaleToFill"></image>
+   <input  class="searchinput" type="text" placeholder="请输入搜索内容"  bindinput="inputContent" confirm-type="search" bindconfirm="searchEvent" value="{{searchKey}}" />
+   <image  bindtap="clearEvent"  class="clearimg" src="{{showClear}}" mode="scaleToFill" ></image>
+ </view>
+  <!-- 热门搜索区域 -->
+  <view class="hotSearchArea" wx:if="{{hotSearchArr.length > 0 && searchResultArr.length == 0}}">
+    <text class="hotSearch_title">热门搜索</text>
+    <view class="hotSearch_view" >
+      <block wx:for="{{hotSearchArr}}" wx:key="*this">
+        <text bindtap="hotitemclick" class="hotSearch_view_item" data-text='{{item.name}}'>{{item.name}}</text>
+      </block>
+    </view>
+  </view>
+</view>

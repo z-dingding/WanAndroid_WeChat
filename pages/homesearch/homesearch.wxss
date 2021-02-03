@@ -1,1 +1,58 @@
 /* pages/homesearch/homesearch.wxss */
+
+.searchArea{
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+   min-height: 70rpx;
+   border-radius: 10rpx;
+   border: solid 2rpx gray;
+   margin: 20rpx 35rpx;
+   padding: 0 10rpx;
+}
+
+.searchinput{
+  display: block;
+   margin-left: 20rpx;
+   flex: auto;
+   font-size: 28rpx;
+}
+.searchimg{
+  width: 40rpx;
+  height: 40rpx;
+}
+.clearimg{
+  width: 30rpx;
+  height: 30rpx;
+  padding: 5rpx;
+}
+/* 热门搜索区域 */
+.hotSearchArea{
+  margin: 20rpx 35rpx;
+  padding: 0 5rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.hotSearch_title{
+  color:#07C160;
+  font-size: 28rpx;
+}
+
+.hotSearch_view{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.hotSearch_view_item{
+  display: block;
+  background-color: #ccdddd;
+  color: white;
+  border-radius: 20%;
+  align-content: center;
+  margin: 10rpx 20rpx 10rpx 0;
+  padding: 5rpx 20rpx;
+  font-size: 22rpx;
+}

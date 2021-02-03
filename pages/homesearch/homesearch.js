@@ -1,10 +1,23 @@
 // pages/homesearch/homesearch.js
+
+const wxapi = require('../wxapi/main')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    //是否展示清除按钮
+    showClear:'',
+    //当前搜索的页面，默认0开始
+    pageIndex:0,
+    //搜索关键字
+    searchKey:'',
+    //热门搜索的数据源
+    hotSearchArr:[],
+    //搜索结果的数据源
+    searchResultArr:[]
 
   },
 
@@ -12,7 +25,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let _this= this;
+    //热门搜索数据请求
+    wxapi.hotSearch().then(function(res){
+      if (res.data.errorCode == 0) {
+        _this.setData({
+          hotSearchArr: res.data.data,
+        })
+      } else {
+        app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
+      }
+    })
   },
 
   /**
@@ -63,9 +86,79 @@ Page({
   onShareAppMessage: function () {
 
   },
-  search:function(value){
-    return new Promise((resolve, reject) => {
-      //实时(500ms)执行网络请求
+  /**
+   * 实时获取input输入的内容
+   */
+  inputContent(e){
+    if(e.detail.value != null && e.detail.value != ''){
+      this.setData({
+        searchKey:e.detail.value,
+        showClear:'../../images/search_clear.png'
+      })
+    }else{
+      this.setData({
+        searchKey:'',
+        showClear:''
+      })
+    }
+      
+  },
+clearEvent:function(e){
+    this.setData({
+      searchKey:'',
+      showClear:''
     })
-   }
+  },
+  /**
+   * 执行搜索请求
+   */
+  searchEvent: function () {
+    if(this.data.searchKey != null && this.data.searchKey != ''){
+      wxapi.search(this.data.pageIndex, this.data.searchKey).then(function (res) {
+        if (res.data.errorCode == 0) {
+  
+        } else {
+          app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
+        }
+      })  
+    }else{
+       wx.showModal({
+         showCancel: false,
+         content:'关键字不能为空!',
+         title:'提示'
+       })
+    }
+       
+  },
+  //选择搜索结果的事件
+  selectResult: function (e) {
+    wx.setClipboardData({
+      data: e.detail.item.url,
+      success (res) {
+         // wx.hideToast()
+          wx.showModal({
+            content: '已成功复制地址到剪切板,可在浏览器中打开查看',
+            showCancel:false,
+            title:'提示',
+        })
+      }
+    })
+  },
+  /**
+   * 热门搜索的点击
+   */
+  hotitemclick:function(e){
+    this.setData({
+      searchKey:e.target.dataset.text,
+      showClear:'../../images/search_clear.png'
+    })
+  }
+
+
+
+
+
+
+
+
 })

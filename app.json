@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/homesearch/homesearch",
     "pages/my/index",
     "pages/system/index",
     "pages/answer/index",
@@ -9,7 +10,8 @@
     "pages/integral/integral",
     "pages/webview/webview",
     "pages/ranking/ranking",
-    "pages/homesearch/homesearch"
+    "pages/tipspage/index",
+    "pages/message/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

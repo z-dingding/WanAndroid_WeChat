@@ -136,6 +136,7 @@ Page({
           item.desc = '签到积分' + item.desc.substring(item.desc.lastIndexOf('：'))
           return item;
         })
+        console.log("----"+dealList)
         _this.setData({
           pageCount: res.data.data.pageCount,
           currentPage: res.data.data.curPage,

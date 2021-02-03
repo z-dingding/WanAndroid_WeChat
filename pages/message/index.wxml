@@ -1,0 +1,32 @@
+<!--pages/message/index.wxml-->
+<import src="../tipspage/index.wxml"></import>
+
+<view class="container">
+  <mp-tabbar ext-class="mpTabbar" list="{{list}}" bindchange="tabChange"></mp-tabbar>
+  <view wx:if="{{currentTab == 0}}" class="messagelist">
+    <!-- WXML提供模板（template），可以在模板中定义代码片段，然后在不同的地方调用。data传递模板需要的参数 -->
+    <block wx:if="{{newMesList.length < 1}}">
+      <template is="noData" data="{{showMessage}}"></template>
+    </block>
+    <block wx:else>
+      <text>我是新消息</text>
+    </block>
+  </view>
+  <view wx:else class="messagelist">
+    <block wx:if="{{historyList.length < 1}}">
+      <template is="noData" data="{{showMessage}}"></template>
+    </block>
+    <block wx:else>
+        <view class="historyitem" wx:for="{{historyList}}" wx:key="*this" wx:for-item="itemName">
+          <view class="historyitem_top">
+            <view class="historyitem_top_left">
+              <button class="btn">{{itemName.type}}</button>
+              <text class="txt">{{itemName.author}}</text>
+            </view>
+            <text class="txt">{{itemName.date}}</text>
+          </view>
+          <view class="historyitem_title">{{itemName.title}}</view>
+        </view>
+      </block>
+  </view>
+</view>

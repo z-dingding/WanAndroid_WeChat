@@ -1,0 +1,11 @@
+<!--pages/tipspage/index.wxml-->
+
+<!-- 没数据展示的view -->
+<template name="noData">
+  <view class="rootview">
+      <view class="tipsview">
+        <image  class="tipsview_image" src="../../images/logo.png" mode="aspectFit"></image>
+        <text class="tipsview_text">{{showMessage}}</text>
+      </view>
+  </view>
+</template>
