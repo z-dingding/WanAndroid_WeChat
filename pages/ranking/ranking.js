@@ -1,5 +1,5 @@
 // pages/ranking/ranking.js
-
+const app = getApp()
 const wxapi = require('../wxapi/main')
 Page({
 

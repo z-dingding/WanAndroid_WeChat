@@ -1,3 +1,4 @@
+const app = getApp()
 Component({
   data: {
       showTopTips: false,

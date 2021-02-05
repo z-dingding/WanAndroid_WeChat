@@ -1,5 +1,5 @@
 // pages/homesearch/homesearch.js
-
+const app = getApp()
 const searchKey ='searchKey';
 const wxapi = require('../wxapi/main')
 

@@ -1,4 +1,5 @@
 // pages/message/index.js
+const app = getApp()
 //自己编的数据
 const historyData ='[{"type": "系统消息","author": "鸿洋","date": "2020-11-12 22:53","title": "字节跳动-懂车帝-大力招Android研发,站长所在团队哈，一起并肩作战."}, {"type": "系统消息","author": "鸿洋","date": "2020-11-12 22:53","title": "自定义控件测量模式真的和math_parent,wrap_content一一对应吗？"}]';
 

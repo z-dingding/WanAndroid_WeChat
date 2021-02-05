@@ -1,4 +1,5 @@
 // pages/system/index.js
+const app = getApp()
 Page({
 
   /**

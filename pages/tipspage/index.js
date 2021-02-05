@@ -1,4 +1,5 @@
 // pages/tipspage/index.js
+const app = getApp()
 Page({
 
   /**

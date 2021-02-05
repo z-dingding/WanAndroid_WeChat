@@ -1,5 +1,5 @@
 // pages/richtext/index.js
-
+const app = getApp()
 const htmlSnip =
   `
 <div class="div_class">
