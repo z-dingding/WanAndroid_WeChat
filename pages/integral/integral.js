@@ -161,7 +161,7 @@ Page({
   //积分说明
   jumptowebview:function(){
     wx.navigateTo({
-      url: '../webview/webview',
+      url: '../richtext/index',
     })
   },
   //积分排行榜

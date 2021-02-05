@@ -1,0 +1,5 @@
+<!--pages/richtext/index.wxml-->
+<!-- 个人类型的小程序暂不支持使用web-view组件，所以暂时采用rich-text显示部分html标签 -->
+<scroll-view scroll-y="true" class="scrollview">
+  <rich-text nodes="{{htmlSnip}}"></rich-text>
+</scroll-view>

@@ -1,7 +1,3 @@
 <!--pages/webview/webview.wxml-->
-<!-- 个人类型的小程序暂不支持使用web-view组件，所以暂时采用rich-text显示 -->
-<view class="page-content">
-        <block wx:if="{{renderedByHtml}}">
-          <rich-text nodes="{{htmlSnip}}"></rich-text>
-        </block>
-      </view>
+          <web-view src="{{urlPath}}"></web-view>
+     

@@ -1,5 +1,6 @@
 // pages/homesearch/homesearch.js
 
+const searchKey ='searchKey';
 const wxapi = require('../wxapi/main')
 
 Page({
@@ -14,10 +15,14 @@ Page({
     pageIndex:0,
     //搜索关键字
     searchKey:'',
+    //上次搜索的关键字
+    searchKeyOld:'',
     //热门搜索的数据源
     hotSearchArr:[],
     //搜索结果的数据源
-    searchResultArr:[]
+    searchResultArr:[],
+    //历史搜索
+    historySearchArr:[],
 
   },
 
@@ -36,6 +41,16 @@ Page({
         app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
       }
     })
+      //获取所有历史搜索数据
+      let searchKeyArry = wx.getStorageSync(searchKey);
+      if(searchKeyArry != ''){
+        this.setData({
+          historySearchArr:searchKeyArry
+         })
+      }else{
+        wx.setStorageSync(searchKey,[])
+      }
+
   },
 
   /**
@@ -114,13 +129,31 @@ clearEvent:function(e){
    */
   searchEvent: function () {
     if(this.data.searchKey != null && this.data.searchKey != ''){
+      //避免多次请求
+      if(this.data.searchKeyOld != this.data.searchKey){
+      //先获取所有存储的数据
+     let searchKeyArry = wx.getStorageSync(searchKey);
+     //搜索结果记录并存储
+     if(!this.isContainKey(searchKeyArry,this.data.searchKey)){
+      searchKeyArry.push(this.data.searchKey)
+      wx.setStorageSync(searchKey, searchKeyArry)
+     }
+      //立刻更新历史记录
+      this.setData({
+        historySearchArr: wx.getStorageSync(searchKey),
+        searchKeyOld:this.data.searchKey,
+       })
+     let _this =this;
       wxapi.search(this.data.pageIndex, this.data.searchKey).then(function (res) {
         if (res.data.errorCode == 0) {
-  
+          _this.setData({
+            searchResultArr:res.data.data.datas,
+          })
         } else {
           app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
         }
       })  
+    }
     }else{
        wx.showModal({
          showCancel: false,
@@ -132,17 +165,9 @@ clearEvent:function(e){
   },
   //选择搜索结果的事件
   selectResult: function (e) {
-    wx.setClipboardData({
-      data: e.detail.item.url,
-      success (res) {
-         // wx.hideToast()
-          wx.showModal({
-            content: '已成功复制地址到剪切板,可在浏览器中打开查看',
-            showCancel:false,
-            title:'提示',
-        })
-      }
-    })
+   wx.navigateTo({
+     url: '../webview/webview?type=1&urlPath='+e.target.dataset.url+'&title='+e.target.dataset.title,
+   })
   },
   /**
    * 热门搜索的点击
@@ -150,11 +175,32 @@ clearEvent:function(e){
   hotitemclick:function(e){
     this.setData({
       searchKey:e.target.dataset.text,
-      showClear:'../../images/search_clear.png'
+      showClear:'../../images/search_clear.png',
     })
+  },
+  /**
+   * 历史搜索的清除按钮
+   */
+  clearHistoryKey: function(e){
+    wx.removeStorageSync(searchKey)
+   wx.setStorageSync(searchKey, [])
+   this.setData({
+     historySearchArr:[]
+    })
+  },
+  /**
+   * 判断数组是否以包含该元素
+   */
+  isContainKey:function(arry,sKey){
+    let bol =false;
+    for(let i=0;i<arry.length;i++){
+       if(arry[i] == sKey){
+        bol  = true;
+        return bol;
+       }
+    }
+    return bol;
   }
-
-
 
 
 

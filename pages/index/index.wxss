@@ -51,6 +51,7 @@
   border-radius: 10rpx;
   margin-left: 10rpx;
 }
+
 .artical_title{
   overflow: hidden;
   /* white-space: nowrap; */

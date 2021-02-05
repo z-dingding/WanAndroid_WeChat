@@ -56,3 +56,46 @@
   padding: 5rpx 20rpx;
   font-size: 22rpx;
 }
+
+.history_top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* 搜索结果区域 */
+.searchResultArea{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15rpx  35rpx 20rpx;
+}
+.searchResult_top{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result_toptext{
+ color: gray;
+ font-size: 25rpx;
+ display: block;
+
+}
+
+.searchResult_middle{
+   width: 100%;
+  display:flex; 
+}
+.searchResult_middle_text{
+font-size:30rpx ;
+color: black;
+}
+
+.searchResult_bottom{
+  color: gray;
+  font-size: 25rpx;
+  margin-bottom: 30rpx;
+}

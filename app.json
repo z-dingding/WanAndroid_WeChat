@@ -11,7 +11,8 @@
     "pages/webview/webview",
     "pages/ranking/ranking",
     "pages/tipspage/index",
-    "pages/message/index"
+    "pages/message/index",
+    "pages/richtext/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
