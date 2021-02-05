@@ -62,10 +62,21 @@ integralRanking:(indexPage) =>{
 },
 //我的消息-新消息(失效)
 messageNew :() =>{
-  return request('message/lg/list/1')
+  return request('message/lg/list/1',"get",{})
 },
 //我的消息-历史消息(失效)
 messageHistroy :()=>{
-  return request('message/lg/history/list/1')
+  return request('message/lg/history/list/1',"get",{})
+},
+//收藏文章接口
+collecteArtical:(articalId)=>{
+  return request('lg/collect/'+articalId+'/json',"post",{})
+},
+//取消文章收藏接口
+collecteCancel:(articalId)=>{
+  return request('lg/uncollect_originId/'+articalId+'/json',"post",{})
 }
+
+
+
 }

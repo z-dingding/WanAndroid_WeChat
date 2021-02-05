@@ -36,11 +36,22 @@ Page({
     }
   })
   },
+  /**
+   * 点击搜索功能
+   */
   search(e){
     wx.navigateTo({
       url: '../homesearch/homesearch',
     })
   },
- 
+ /**
+  * 点击首页列表项事件(注意,方法名不能和其他页面重复)
+  * data-xxx小写获取
+  */
+ itemClick: function (e) {
+  wx.navigateTo({
+    url: '../webview/webview?type=1&urlPath='+e.target.dataset.url+'&title='+e.target.dataset.title+'&articalId='+e.target.dataset.articalid,
+  })
+ },
 
 })

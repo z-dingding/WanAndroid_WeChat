@@ -14,7 +14,7 @@
     <text  class="result_toptext">{{item.niceDate}}</text>
   </view>
   <view class="searchResult_middle">
-  <rich-text bindtap="selectResult" class="searchResult_middle_text" nodes=" {{item.title}}" data-url=" {{item.link}}" data-title="{{item.title}}"></rich-text> 
+  <rich-text bindtap="selectResult" class="searchResult_middle_text" nodes=" {{item.title}}" data-url=" {{item.link}}" data-title="{{item.title}}" data-articalId="{{item.id}}"></rich-text> 
 </view>
   <view class="searchResult_bottom">{{item.chapterName}}.{{item.superChapterName}}</view>
 </block>

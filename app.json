@@ -2,13 +2,14 @@
   "pages": [
     "pages/index/index",
     "pages/homesearch/homesearch",
+    "pages/webview/webview",
     "pages/my/index",
     "pages/system/index",
     "pages/answer/index",
     "pages/login/index",
     "pages/testdemo/index",
     "pages/integral/integral",
-    "pages/webview/webview",
+  
     "pages/ranking/ranking",
     "pages/tipspage/index",
     "pages/message/index",
