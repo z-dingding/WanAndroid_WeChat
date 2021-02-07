@@ -40,6 +40,12 @@ banner:()=>{
 topArtical:()=>{
  return request("article/top/json","get",{})
 },
+/**
+ * 首页列表接口
+ */
+homeArticalList:(pageIndex)=>{
+  return request('article/list/'+pageIndex+'/json',"get",{})
+},
 //搜索接口
 search:(pageIndex,searchKey)=>{
   return request('article/query/'+pageIndex+'/json',"post",{k:searchKey})
@@ -72,11 +78,19 @@ messageHistroy :()=>{
 collecteArtical:(articalId)=>{
   return request('lg/collect/'+articalId+'/json',"post",{})
 },
-//取消文章收藏接口
+//取消文章收藏接口(文章列表页面)
 collecteCancel:(articalId)=>{
   return request('lg/uncollect_originId/'+articalId+'/json',"post",{})
-}
-
-
+  
+},
+//取消文章收藏接口(收藏列表页面)
+collecteCancelList:(articalId)=>{
+  return request('lg/uncollect/'+articalId+'/json',"post",{originId:-1})
+  
+},
+//收藏文章列表接口
+collecteList:(pageIndex)=>{
+  return request('lg/collect/list/'+pageIndex+'/json',"get",{})
+},
 
 }

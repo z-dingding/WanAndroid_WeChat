@@ -13,21 +13,34 @@
       </swiper-item>
     </block>
   </swiper>
-  <!-- 置顶文章区域 -->
-  <view class="topartical" wx:for="{{topArticalList}}" wx:key="*this">
+  <!-- 文章区域 -->
+  <view class="topartical" wx:for="{{topArticalList}}" wx:key="*this"  bindtap="itemClick" data-title='{{item.title}}' data-url='{{item.link}}' data-articalId='{{item.id}}'>
+    
+     <!-- 上部分 -->
       <view class="topartical_toparea">
         <view class="topartical_toparea_left">
-          <view class="artical_author artical_smallsize">{{item.author}}</view>
+          <view class="artical_author artical_smallsize">{{item.author != ''? item.author : item.shareUser }}</view>
           <view class="artical_fromsite artical_smallsize" wx:if="{{item.tags.length > 0}}">{{item.tags[0].name}}</view>
         </view>
         <view class="artical_date artical_smallsize">{{item.niceDate}}</view>
       </view>
-      <view class="artical_title" ><text bindtap="itemClick" data-title='{{item.title}}' data-url='{{item.link}}' data-articalId='{{item.id}}'>{{item.title}}</text> </view>
-      <view class="topartical_bottomarea artical_smallsize">
-        <view class="topartical_bottomarea_left">置顶</view>
-        <view>{{item.chapterName}}.{{item.superChapterName}}</view>
+      <!-- 中部分 -->
+      <view  class="centerartical_area">
+        <view   wx:if="{{item.envelopePic != ''}}">
+          <image class="centerartical_area_img" src="{{item.envelopePic}}" mode="aspectFit"></image>
+        </view>
+        <view class="artical_title">
+          <text bindtap="itemClick" data-title='{{item.title}}' data-url='{{item.link}}' data-articalId='{{item.id}}'>{{item.title}}</text> 
+        </view>
+      
       </view>
+      <!-- 下部分 -->
+      <view class="topartical_bottomarea artical_smallsize">
+        <!-- chapterId : 249表示为置顶资源 -->
+        <view class="topartical_bottomarea_left" wx:if="{{item.chapterId == 249}}">置顶</view>
+        <view>{{item.superChapterName}}.{{item.chapterName}}</view>
+      </view>
+  
   </view>
-  <!-- 其他文章区域 -->
-  <view class="oherartical"></view>
+
 </view>

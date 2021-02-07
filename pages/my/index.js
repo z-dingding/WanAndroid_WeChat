@@ -37,7 +37,6 @@ Page({
     //首次进入我的页面,登录失效,登录页面返回请求我的积分(该接口需要登录后请求)
     if (this.data.integralNum == 0) {
       wxapi.integral().then(function (res) {
-      
         if (res.data.errorCode == 0) {
           _this.setData({
             integralNum: res.data.data.coinCount,
@@ -112,13 +111,14 @@ Page({
               url: '../integral/integral?integral=' + this.data.integralNum
             })
           }
-
           break;
         case "share":
-          current = "我的分享"
+        
           break;
         case "collection":
-          current = "我的收藏"
+          wx.navigateTo({
+            url: '../collection/index'
+          })
           break;
       }
     }
@@ -138,6 +138,9 @@ Page({
       }
     })
   },
+  /**
+   * 消息通知
+   */
   messageEevent : function(){
     wx.navigateTo({
       url: '../message/index',

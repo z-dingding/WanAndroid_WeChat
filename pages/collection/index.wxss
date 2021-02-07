@@ -1,0 +1,35 @@
+/* pages/collection/index.wxss */
+.collection_item{
+  padding: 20rpx 30rpx;
+  color: gray;
+  font-size: 22rpx;
+  display: flex;
+  flex-direction: column;
+}
+.collection_top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 10rpx;
+  align-items: center;
+}
+.collection_center{
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 10rpx;
+  align-items: center;
+  color: black;
+  font-size: 30rpx ;
+}
+.collection_bottom{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.collection_bottom_img{
+  width: 30rpx;
+  height: 30rpx;
+  padding: 5rpx;
+}

@@ -1,5 +1,6 @@
 {
   "pages": [
+   
     "pages/index/index",
     "pages/homesearch/homesearch",
     "pages/webview/webview",
@@ -9,11 +10,12 @@
     "pages/login/index",
     "pages/testdemo/index",
     "pages/integral/integral",
-  
     "pages/ranking/ranking",
     "pages/tipspage/index",
     "pages/message/index",
-    "pages/richtext/index"
+    "pages/richtext/index",
+    "pages/collection/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

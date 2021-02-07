@@ -162,7 +162,6 @@ Page({
               articalIdArr:newArr
             })
           wx.setStorageSync(key_collectionId,_this.data.articalIdArr);
-
           }
         
           wx.showToast({

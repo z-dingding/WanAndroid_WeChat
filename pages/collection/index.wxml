@@ -1,0 +1,21 @@
+<!--pages/collection/index.wxml-->
+<view>
+  <view class="collection">
+    <block wx:for="{{datas}}" wx:key="*this">
+      <view class="collection_item">
+
+        <view class="collection_top">
+          <text>{{item.author}}</text>
+          <text>{{item.niceDate}}</text>
+        </view>
+        <view class="collection_center">
+          {{item.title}}
+        </view>
+        <view class="collection_bottom">
+          <text>{{item.chapterName}}</text>
+          <image class="collection_bottom_img" src="../../images/collection_sel.png" bindtap="imgClick" src="{{'../../images/collection_sel.png'}}"  data-id="{{item.id}}" data-originId="{{item.originId}}"></image>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -61,6 +61,18 @@
    -webkit-box-orient:vertical;
   color: black;
 }
+.centerartical_area{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.centerartical_area_img{
+  width: 200rpx;
+  height: 120rpx;
+  margin-right: 15rpx;
+}
 .topartical_bottomarea{
   display: flex;
   flex-direction: row;
@@ -70,5 +82,5 @@
   font-size:25rpx;
   color: #D94E2E;
   padding-right: 15rpx;
-
 }
+
