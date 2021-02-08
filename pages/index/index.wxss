@@ -70,7 +70,7 @@
 }
 .centerartical_area_img{
   width: 200rpx;
-  height: 120rpx;
+  /* height: 120rpx; */
   margin-right: 15rpx;
 }
 .topartical_bottomarea{

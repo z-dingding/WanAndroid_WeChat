@@ -92,5 +92,10 @@ collecteCancelList:(articalId)=>{
 collecteList:(pageIndex)=>{
   return request('lg/collect/list/'+pageIndex+'/json',"get",{})
 },
-
+/**
+ * 问答列表接口
+ */
+answerQuestion:(pageIndex)=>{
+  return request('wenda/list/'+pageIndex+'/json',"get",{})
+}
 }

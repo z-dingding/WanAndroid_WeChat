@@ -112,7 +112,11 @@ Page({
         }
       })
     }else {
-
+      wx.showModal({
+        showCancel: false,
+        title:'提示',
+        content:'已是最后一页!'
+      })
     }
   }
 })

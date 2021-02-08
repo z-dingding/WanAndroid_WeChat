@@ -1,1 +1,32 @@
 /* pages/answer/index.wxss */
+.item{
+  position: relative;
+  color: gray;
+  font-size: 22rpx;
+  padding: 35rpx 25rpx;
+  overflow: hidden;
+}
+.item_top{
+  position: relative;
+  vertical-align: middle;
+}
+.item_top  .item_tag{
+  color: #07C160;
+  border:  #07C160 2px solid;
+  padding: 4rpx;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+}
+
+.item_top .item_date{
+position: absolute;
+right: 0;
+}
+.item_center{
+  /* overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap; */
+margin: 12rpx 0;
+color: black;
+font-size: 30rpx;
+}

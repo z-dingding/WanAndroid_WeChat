@@ -1,2 +1,19 @@
 <!--pages/answer/index.wxml-->
-<text>pages/answer/index.wxml</text>
+<view>
+  <view class="item" wx:for="{{datas}}" wx:key="*this">
+      <!-- 上 -->
+      <view class="item_top">
+        <text class="item_author">{{item.author != ''? item.author : item.shareUser }}</text>
+        <text class="item_tag" wx:if="{{item.tags.length > 0}}">{{item.tags[0].name}}</text>
+        <text class="item_date">{{item.niceDate}}</text>
+      </view>
+      <!-- 中 -->
+      <view class="item_center">
+        <text class="item_title" bindtap="itemClick" data-title='{{item.title}}' data-url='{{item.link}}' data-articalId='{{item.id}}'>{{item.title}}</text>
+      </view>
+      <!-- 下 -->
+      <view class="item_bottom">
+        <text>{{item.superChapterName}}.{{item.chapterName}}</text>
+      </view>
+  </view>
+</view>
