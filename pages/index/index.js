@@ -55,7 +55,7 @@ Page({
    */
   itemClick: function (e) {
     wx.navigateTo({
-      url: '../webview/webview?type=1&urlPath=' + e.target.dataset.url + '&title=' + e.target.dataset.title + '&articalId=' + e.target.dataset.articalid,
+      url: '../webview/webview?type=1&urlPath=' + e.currentTarget.dataset.url + '&title=' + e.currentTarget.dataset.title + '&articalId=' + e.currentTarget.dataset.articalid,
     })
   },
   /**

@@ -1,2 +1,20 @@
 <!--pages/system/index.wxml-->
-<text>pages/system/index.wxml</text>
+<view>
+  <!-- 顶部tab -->
+  <view class="tab">
+    <text class=" {{ selTab == 0 ? 'tab_item-active' : 'tab_item'}}" data-index="0" bindtap="tabClick" >体系</text>
+    <text class=" {{ selTab == 1 ? 'tab_item-active' : 'tab_item'}}" data-index="1" bindtap="tabClick">导航</text>
+  </view>
+  <!-- 内容区域 -->
+  <view class="content">
+    <view class="content_item" wx:for="{{selTab == 0 ? systemDatas : navigationDatas}}" wx:key="*this"  >
+      <text class="content_item_title">{{item.name}}</text>
+      <view>
+        <view class="content_item_view" wx:for="{{selTab == 0 ? item.children : item.articles}}" wx:key="*this"> 
+        <text class="content_item_btn" bindtap="itemClick" data-title='{{selTab == 0 ? item.name : item.title}}' data-url="{{selTab == 0 ? '' : item.link}}" data-articalId='{{item.id}}'>{{selTab == 0 ? item.name : item.title}}</text>
+      </view>
+      </view>
+     
+    </view>
+  </view>
+</view>

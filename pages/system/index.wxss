@@ -1,1 +1,44 @@
 /* pages/system/index.wxss */
+.tab{
+  height: 60rpx;
+  text-align: center;
+  background-color: #07C160;
+}
+.tab_item{
+  line-height: 40rpx;
+  padding-left: 30rpx;
+  color: gray;
+}
+.tab_item-active{
+  line-height: 40rpx;
+  padding-left: 30rpx;
+  color: white;
+}
+
+.content{
+  padding: 10rpx 20rpx;
+}
+
+.content_item{
+  margin-bottom: 35rpx;
+}
+.content_item_title{
+  color: gray;
+}
+.content_item_view{
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+
+}
+.content_item_btn{
+  background-color: #ccdddd;
+  color: black;
+  border-radius: 100rpx;
+  align-content: center;
+  margin: 10rpx 20rpx 10rpx 0;
+  padding: 10rpx 10rpx;
+  font-size: 20rpx;
+}

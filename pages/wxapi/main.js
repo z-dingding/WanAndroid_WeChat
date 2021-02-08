@@ -97,5 +97,23 @@ collecteList:(pageIndex)=>{
  */
 answerQuestion:(pageIndex)=>{
   return request('wenda/list/'+pageIndex+'/json',"get",{})
+},
+/**
+ * 体系数据
+ */
+systemDatas:()  =>{
+  return request('tree/json',"get",{})
+},
+/**
+ * 导航数据
+ */
+navigationDatas:()  =>{
+  return request('navi/json',"get",{})
+},
+/**
+ * 体系二级列表数据
+ */
+onSubSystemList:(pageIndex,cid) =>{
+  return request('article/list/'+pageIndex+'/json',"get",{cid:cid})
 }
 }

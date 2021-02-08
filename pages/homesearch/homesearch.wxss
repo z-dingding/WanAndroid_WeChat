@@ -50,7 +50,7 @@
   display: block;
   background-color: #ccdddd;
   color: white;
-  border-radius: 20%;
+  border-radius: 100rpx;
   align-content: center;
   margin: 10rpx 20rpx 10rpx 0;
   padding: 5rpx 20rpx;

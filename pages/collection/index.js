@@ -117,5 +117,14 @@ Page({
           app.checkCodeDeal(res.data.errorCode,res.data.errorMsg)
         }
       })
+  },
+    /**
+   * item点击事件
+   */
+  itemClick: function (e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '../webview/webview?type=1&urlPath='+e.currentTarget.dataset.url+'&title='+e.currentTarget.dataset.title+'&articalId='+e.currentTarget.dataset.articalid,
+    })
   }
 })

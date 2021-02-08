@@ -125,9 +125,19 @@ Page({
    * 点击复制链接
    */
   copyEvent: function () {
-    wx.setClipboardData({
-      data: this.data.urlPath,
-    })
+    if(this.data.urlPath != ''){
+      wx.setClipboardData({
+        data: this.data.urlPath,
+      })
+    }else{
+      wx.showToast({
+        //测试发现设置为error会不正常显示
+        icon:'none',
+        title: '复制失败!',
+      })
+    }
+    
+  
   },
   /**
    * 收藏按钮的点击

@@ -14,8 +14,7 @@
     </block>
   </swiper>
   <!-- 文章区域 -->
-  <view class="topartical" wx:for="{{topArticalList}}" wx:key="*this">
-    
+  <view class="topartical" wx:for="{{topArticalList}}" wx:key="*this"  bindtap="itemClick" data-title='{{item.title}}' data-url='{{item.link}}' data-articalId='{{item.id}}'>
      <!-- 上部分 -->
       <view class="topartical_toparea">
         <view class="topartical_toparea_left">
@@ -30,7 +29,7 @@
           <image class="centerartical_area_img" src="{{item.envelopePic}}" mode="widthFix"></image>
         </view>
         <view class="artical_title">
-          <text bindtap="itemClick" data-title='{{item.title}}' data-url='{{item.link}}' data-articalId='{{item.id}}'>{{item.title}}</text> 
+          <text>{{item.title}}</text> 
         </view>
       
       </view>

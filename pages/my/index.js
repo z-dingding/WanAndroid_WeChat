@@ -112,14 +112,16 @@ Page({
             })
           }
           break;
-        case "share":
-        
-          break;
         case "collection":
           wx.navigateTo({
             url: '../collection/index'
           })
           break;
+          default :
+          wx.showToast({
+            title: '敬请期待',
+          })
+          break
       }
     }
   },

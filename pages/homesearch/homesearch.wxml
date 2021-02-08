@@ -7,17 +7,17 @@
    <image  bindtap="clearEvent"  class="clearimg" src="{{showClear}}" mode="scaleToFill" ></image>
  </view>
   <!-- 搜索结果区域 -->
-  <view class="searchResultArea"  wx:if="{{searchResultArr.length >0}}">
-    <block wx:for="{{searchResultArr}}" wx:key="*this" >
+  <view class="searchResultArea"  wx:if="{{searchResultArr.length >0}}"   wx:for="{{searchResultArr}}" wx:key="*this" bindtap="selectResult" data-url=" {{item.link}}" data-title="{{item.title}}" data-articalId="{{item.id}}">
+
   <view class="searchResult_top">
     <text class="result_toptext">{{item.author != '' ? item.author : item.shareUser}}</text>
     <text  class="result_toptext">{{item.niceDate}}</text>
   </view>
   <view class="searchResult_middle">
-  <rich-text bindtap="selectResult" class="searchResult_middle_text" nodes=" {{item.title}}" data-url=" {{item.link}}" data-title="{{item.title}}" data-articalId="{{item.id}}"></rich-text> 
+  <rich-text  class="searchResult_middle_text" nodes=" {{item.title}}"></rich-text> 
 </view>
   <view class="searchResult_bottom">{{item.chapterName}}.{{item.superChapterName}}</view>
-</block>
+
  </view>
   <!-- 热门搜索区域 -->
   <view class="hotSearchArea" wx:if="{{hotSearchArr.length > 0 && searchResultArr.length == 0}}">

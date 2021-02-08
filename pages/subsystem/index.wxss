@@ -1,0 +1,28 @@
+/* pages/subsystem/index.wxss */
+
+.container{
+  padding: 15rpx 30rpx ;
+}
+.item{
+ color: gray;
+ font-size: 22rpx;
+ margin-bottom: 30rpx;
+}
+.item_top{
+  width: 100%;
+  height: 30rpx;
+  position: relative;
+  vertical-align: center;
+}
+.item_author{
+position: absolute;
+left: 0;
+}
+.item_time{
+  position: absolute;
+right: 0;
+}
+.item_title{
+  color: black;
+  font-size: 30rpx;
+}

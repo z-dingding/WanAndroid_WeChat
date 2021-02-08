@@ -1,0 +1,16 @@
+<!--pages/subsystem/index.wxml-->
+<view class="container">
+  <view class="item" wx:for="{{subSystemDatas}}" wx:key="*this">
+    <view class="item_top">
+      <text class="item_author">{{item.author != ''? item.author:item.shareUser }}</text>
+      <text class="item_time">{{item.niceDate}}</text>
+    </view>
+    <view class="item_center">
+      <text class="item_title"  bindtap="itemClick" data-title='{{item.title}}' data-url="{{item.link}}"
+        data-articalId='{{item.id}}'>{{item.title}}</text>
+    </view>
+    <view class="item_bottom">
+      <text class="item_tag" >{{item.superChapterName}}-{{item.chapterName}}</text>
+    </view>
+  </view>
+</view>
