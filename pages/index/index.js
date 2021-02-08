@@ -27,7 +27,10 @@ Page({
         app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
       }
     })
+    //请求首页列表数据
     this.refershEvent();
+    //检查是否有可更新的安装包(微信自动检测下载)
+    this.checkUpdate();
   },
   /**
    * 重写页面下拉方法
@@ -118,5 +121,23 @@ Page({
         content:'已是最后一页!'
       })
     }
+  },
+  /**
+   * 更新小程序
+   */
+  checkUpdate :function(){
+    const updateManager = wx.getUpdateManager();
+    updateManager.onUpdateReady(function () {
+      wx.showModal({
+        title: '更新提示',
+        content: '新版本已经准备好，是否重启应用？',
+        success: function (res) {
+          if (res.confirm) {
+            // 强制小程序重启并使用新版本
+            updateManager.applyUpdate()
+          }
+        }
+      })
+    })
   }
 })

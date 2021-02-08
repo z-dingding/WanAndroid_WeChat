@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/setting/index",
     "pages/my/index",
     "pages/system/index",
     "pages/subsystem/index",
-    "pages/index/index",
     "pages/homesearch/homesearch",
     "pages/webview/webview",
-   
     "pages/answer/index",
     "pages/login/index",
     "pages/testdemo/index",
@@ -15,8 +15,7 @@
     "pages/tipspage/index",
     "pages/message/index",
     "pages/richtext/index",
-    "pages/collection/index",
-    "pages/setting/index"
+    "pages/collection/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

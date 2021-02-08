@@ -1,1 +1,4 @@
 /* pages/setting/index.wxss */
+.btn_loginout{
+  margin: 100rpx 30rpx;
+}

@@ -1,2 +1,10 @@
 <!--pages/setting/index.wxml-->
-<text>pages/setting/index.wxml</text>
+<view>
+<mp-cells>
+  <mp-cell link hover value="版本更新" footer="当前版本为:{{version}}" bindtap="checkVersion">
+    </mp-cell>
+    <mp-cell link hover value="缓存大小" footer="{{currentSize}}" bindtap="checkStorageSize">
+    </mp-cell>
+</mp-cells>
+<button type="primary" loading="{{loading}}" bindtap="loginout" class="btn_loginout">退出登录</button>
+</view>

@@ -5,14 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+   loading:false,
+   version:'',
+   currentSize:'',
+   limitSize:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //获取版本号相关信息
+    let version = this.getVersionInfo();
+    //获取储存信息
+    const res = wx.getStorageInfoSync();
+    this.setData({
+      version:version,
+      currentSize:res.currentSize+'KB',
+      limitSize:res.limitSize+'KB',
+    })
   },
 
   /**
@@ -62,5 +73,60 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  /**
+   * 获取版本号相关信息
+   */
+  getVersionInfo(){
+    
+    console.log(wx.getAccountInfoSync())
+    const accountInfo = wx.getAccountInfoSync();
+    let version = '暂无信息'
+    switch(accountInfo.miniProgram.envVersion){
+      case 'develop':
+        version = '开发版';
+      break
+      case 'trial':
+        version = '体验版';
+      break
+      case 'release':
+        version = accountInfo.version ;
+      break
+    }
+    return version;
+  },
+/**
+ *缓存大小点击
+ */
+checkStorageSize:function(){
+  wx.showModal({
+    showCancel:false,
+    title:'提示',
+    content:'当前使用:'+this.data.currentSize+',总计:'+this.data.limitSize+'.请放心使用.',
+  })
+},
+checkVersion(){
+  wx.showModal({
+    showCancel:false,
+    title:'提示',
+    content:'小程序将自动更新,无需用户操作',
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })

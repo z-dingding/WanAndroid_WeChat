@@ -117,6 +117,11 @@ Page({
             url: '../collection/index'
           })
           break;
+          case "setting":
+          wx.navigateTo({
+            url: '../setting/index'
+          })
+          break
           default :
           wx.showToast({
             title: '敬请期待',
