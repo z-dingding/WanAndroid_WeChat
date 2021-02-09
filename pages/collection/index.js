@@ -90,6 +90,8 @@ Page({
          pageCount: res.data.data.pageCount,
          datas: res.data.data.datas,
        })
+       //每次请求就同步本地存储的collectionId
+       _this.syncCollectionId(res.data.data.datas)
      } else {
        app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
      }
@@ -126,5 +128,16 @@ Page({
     wx.navigateTo({
       url: '../webview/webview?type=1&urlPath='+e.currentTarget.dataset.url+'&title='+e.currentTarget.dataset.title+'&articalId='+e.currentTarget.dataset.articalid,
     })
-  }
+  },
+  /**
+   * 同步本地存储的收藏id
+   */
+  syncCollectionId(array){
+    let newArray =[]
+    wx.removeStorageSync(key_collectionId)
+    for(let i =0;i<array.length ;i++){
+      newArray.push(array[i].originId);
+    }
+    wx.setStorageSync(key_collectionId, newArray)
+  },
 })

@@ -40,7 +40,6 @@ App({
   },
   //全局变量的存储区域
   globalData: {
-    userInfo: null,
     /**是否已经登录的标识，false没有登录*/
     isLogin:false
   }

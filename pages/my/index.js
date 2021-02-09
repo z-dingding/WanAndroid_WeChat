@@ -35,20 +35,30 @@ Page({
   onShow: function () {
     let _this = this;
     //首次进入我的页面,登录失效,登录页面返回请求我的积分(该接口需要登录后请求)
-    if (this.data.integralNum == 0) {
-      wxapi.integral().then(function (res) {
-        if (res.data.errorCode == 0) {
-          _this.setData({
-            integralNum: res.data.data.coinCount,
-            username: res.data.data.username,
-            level: res.data.data.level,
-            rank: res.data.data.rank,
-          })
-        } else {
-          app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
-        }
+    if(app.globalData.isLogin){
+      if (this.data.integralNum == 0) {
+        wxapi.integral().then(function (res) {
+          if (res.data.errorCode == 0) {
+            _this.setData({
+              integralNum: res.data.data.coinCount,
+              username: res.data.data.username,
+              level: res.data.data.level,
+              rank: res.data.data.rank,
+            })
+          } else {
+            app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
+          }
+        })
+      }
+    }else{
+      _this.setData({
+        integralNum: 0,
+        username: '',
+        level: '',
+        rank: '',
       })
     }
+   
 
   },
 

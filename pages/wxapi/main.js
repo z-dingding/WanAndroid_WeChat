@@ -115,5 +115,11 @@ navigationDatas:()  =>{
  */
 onSubSystemList:(pageIndex,cid) =>{
   return request('article/list/'+pageIndex+'/json',"get",{cid:cid})
+},
+/**
+ * 退出登录
+ */
+loginOut:() =>{
+  return request('user/logout/json','get',{})
 }
 }
