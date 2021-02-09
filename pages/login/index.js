@@ -172,5 +172,13 @@ inputAccoutEvent(e){
         })
       }
   })
+  },
+  /**
+   * 注册事件
+   */
+  rigister:function(){
+   wx.navigateTo({
+     url: '../register/index'
+   })
   }
 });

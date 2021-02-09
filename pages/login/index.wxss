@@ -12,3 +12,11 @@
 .btn_login{
   margin-top: 30rpx;
 }
+
+.textregister{
+  margin-top: 20rpx;
+  display: block;
+  text-decoration:underline; 
+  text-align: center;
+  color: #07C160;
+}

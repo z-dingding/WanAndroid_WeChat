@@ -12,6 +12,7 @@
         </mp-cell>
       </mp-cells>
    <button type="primary" bindtap="loginEvent" class="btn_login"  loading="{{isShowLoading}}">登录</button>
+   <text class="textregister" bindtap="rigister">还没账号?</text>
     </mp-form>
 </view>
 </view>
