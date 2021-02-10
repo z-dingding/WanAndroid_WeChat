@@ -1,1 +1,41 @@
 /* pages/register/index.wxss */
+.rootview{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.registerArea{
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 0 50rpx;
+}
+.logo{
+  width: 200rpx;
+  height: 200rpx;
+}
+.input{
+  display: block;
+  height: 80rpx;
+  margin-top: 35rpx;
+ border-style: solid;
+ border-color: gray;
+ border-width: 2rpx;
+ text-align: left;
+ padding-left: 15rpx;
+}
+.input_active{
+  display: block;
+  height: 80rpx;
+  margin-top: 35rpx;
+ border-style: solid;
+ border-color: #07C160;
+ border-width: 2rpx;
+ text-align: left;
+ padding-left: 15rpx;
+
+}
+
+.btn_register{
+  margin-top: 40rpx;
+}

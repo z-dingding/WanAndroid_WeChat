@@ -1,2 +1,14 @@
 <!--pages/register/index.wxml-->
-<text>pages/register/index.wxml</text>
+<view class="rootview">
+  <view class="registerArea">
+    <image src="../../images/logo.png" class="logo"></image>
+    <input type="text" placeholder="请输入账号" class="{{activeNum == '0'? 'input_active' : 'input'}}" confirm-type="next" bindfocus="inputFocusEvent" bindinput="accountEvent" data-num="0"/>
+    <input type="text" placeholder="请输入密码"   password="true"  
+    class="{{activeNum == '1' ? 'input_active':'input'}}" confirm-type="next" bindfocus="inputFocusEvent" 
+    bindinput="pwdEvent" data-num="1"/>
+    <input type="text" placeholder="请再次输入密码" password="true" 
+    class="{{activeNum == '2' ? 'input_active' : 'input'}}" confirm-type="done" bindfocus="inputFocusEvent" 
+    bindinput="surePwdEvent" data-num="2"/>
+    <button class="btn_register"  type="primary" bindtap="registerEvent">点我注册</button>
+  </view>
+</view>

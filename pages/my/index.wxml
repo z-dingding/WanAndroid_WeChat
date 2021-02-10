@@ -7,7 +7,7 @@
       <!-- 我的消息 -->
       <image  class="head_function_img" mode="aspectFit" src="../../images/mine_message.png" bindtap="messageEevent"></image>
     </view>
-    <view class="head_user">
+    <view class="head_user" bindtap="clickUser">
       <image src="../../images/logo_round.png" class="userImg" mode="aspectFit"></image>
       <text class="username">{{username}}</text>
       <view style="flex-direction:row;">

@@ -121,5 +121,11 @@ onSubSystemList:(pageIndex,cid) =>{
  */
 loginOut:() =>{
   return request('user/logout/json','get',{})
+},
+/**
+ *注册账号
+ */
+registerAccount:(account,pwd,surePwd) =>{
+  return request('user/register','post',{username:account,password:pwd,repassword:surePwd})
 }
 }

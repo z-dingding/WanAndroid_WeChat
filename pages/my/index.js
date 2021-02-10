@@ -162,5 +162,24 @@ Page({
     wx.navigateTo({
       url: '../message/index',
     })
-  }
+  },
+  /**
+   * 点击用户区域
+   */
+  clickUser:function(){
+    if(!app.globalData.isLogin){
+      wx.navigateTo({
+        url: '../login/index?page=login',
+        events: {
+          // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
+          acceptDataFromOpenedPage: function (data) {
+            //登录成功的回调接口
+            if (data.loginResult == "success") {}
+          },
+        }
+      })
+    }else{
+     
+    }
+  },
 })

@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/login/index",
-    "pages/register/index",
     "pages/index/index",
+    "pages/register/index",
+    "pages/login/index",
+
     "pages/setting/index",
     "pages/my/index",
     "pages/system/index",
