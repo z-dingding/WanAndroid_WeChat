@@ -132,6 +132,11 @@ Page({
             url: '../setting/index'
           })
           break
+          case "feedback":
+          wx.navigateTo({
+            url: '../feedback/index'
+          })
+          break
           default :
           wx.showToast({
             title: '敬请期待',

@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/register/index",
     "pages/login/index",
-
     "pages/setting/index",
     "pages/my/index",
     "pages/system/index",
@@ -17,8 +16,8 @@
     "pages/tipspage/index",
     "pages/message/index",
     "pages/richtext/index",
-    "pages/collection/index"
-    
+    "pages/collection/index",
+    "pages/feedback/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

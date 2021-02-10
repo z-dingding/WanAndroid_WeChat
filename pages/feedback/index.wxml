@@ -1,0 +1,4 @@
+<!--pages/feedback/index.wxml-->
+<view class="rootview">
+<button type="primary" open-type="feedback" class="btn_feedback">点我反馈</button>
+</view>

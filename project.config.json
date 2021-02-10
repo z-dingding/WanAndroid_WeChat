@@ -40,7 +40,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.11.0",
+  "libVersion": "2.15.0",
   "appid": "wx40c2acf9bc8aeefb",
   "projectname": "WanAndroid",
   "debugOptions": {
