@@ -77,7 +77,12 @@ Page({
   onShareAppMessage: function () {
 
   },
-
+  /**
+   * 重写页面上拉加载功能
+   */
+  onReachBottom:function(){
+   this.loadMore();
+  },
   /**
    *请求收藏文章列表
    */
@@ -140,4 +145,33 @@ Page({
     }
     wx.setStorageSync(key_collectionId, newArray)
   },
+  /**
+   * 加载更多的方法
+   */
+  loadMore(){
+    let _this =this;
+    let page = ++this.data.pageIndex
+    if (this.data.curPage < this.data.pageCount) {
+      wxApi.collecteList(page).then(res => {
+        if (res.data.errorCode == 0) {
+          let array = _this.data.datas;
+          _this.setData({
+            pageIndex: page,
+            curPage: res.data.data.curPage,
+            totalCount: res.data.data.totalCount,
+            //concat返回新数组，不改变原数组
+            datas: array.concat(res.data.data.datas),
+          })
+        } else {
+          app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
+        }
+      })
+    }else {
+      wx.showModal({
+        showCancel: false,
+        title:'提示',
+        content:'已是最后一页!'
+      })
+    }
+  }
 })
