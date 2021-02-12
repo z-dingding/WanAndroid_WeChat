@@ -8,11 +8,12 @@ const nodes = `
 `
 const app = getApp()
 const wxapi = require('../wxapi/main')
-const arrayutil =require('../../utils/arrayutil')
+const arrayutil = require('../../utils/arrayutil')
+const timeutil = require('../../utils/timeutil')
 /**
  * 储存收藏文章的key
  */
-const key_collectionId='collectionid'
+const key_collectionId = 'collectionid'
 Page({
 
   /**
@@ -24,7 +25,7 @@ Page({
     type: '3',
     urlPath: '',
     title: '',
-    articalId:'',
+    articalId: '',
     //是否可以使用web-view
     showWebview: false,
     /**
@@ -34,7 +35,9 @@ Page({
     /**
      * 所有收藏的文章id数组
      */
-    articalIdArr:[]
+    articalIdArr: [],
+    //是否展示收藏按钮
+    isShowCollection: true,
   },
 
   /**
@@ -42,12 +45,44 @@ Page({
    */
   onLoad: function (options) {
     if (options.type == '1') {
+      //是否展示收藏按钮(首页banner,阅读历史进入隐藏)
+      if (options.hasOwnProperty('isShowCollection')) {
+        this.setData({
+          isShowCollection: false,
+        })
+      }
       this.setData({
         type: '1',
         urlPath: options.urlPath,
         title: options.title,
-        articalId:options.articalId,
+        articalId: options.articalId,
       })
+      //记录文章信息作为阅读历史记录
+      let res = wx.getStorageInfoSync();
+      let newArrays = [];
+      //之前是否有存储记录
+      if (arrayutil.isContainEle(res.keys, app.globalData.key_readHistory)) {
+        newArrays = wx.getStorageSync(app.globalData.key_readHistory)
+        let obj = {
+          urlPath: options.urlPath,
+          title: options.title,
+          time: timeutil.formatDate((new Date()).getTime(), 'yyyy-MM-dd hh:mm:ss')
+        }
+        //todo 不知为何不能正常接收值
+        let a = arrayutil.isContainEleObj(newArrays, obj);
+        let ba = !arrayutil.isContainEleObj(newArrays, obj)
+          //不判断之前是否保存过，直接将记录保存
+          newArrays.push(obj)
+      } else {
+        let obj = {
+          urlPath: options.urlPath,
+          title: options.title,
+          time: timeutil.formatDate((new Date()).getTime(), 'yyyy-MM-dd hh:mm:ss')
+        }
+        //将记录保存
+        newArrays.push(obj)
+      }
+      wx.setStorageSync(app.globalData.key_readHistory, newArrays)
     }
     //根据不同文章标题设置page标题
     wx.setNavigationBarTitle({
@@ -55,21 +90,21 @@ Page({
     })
     //查询本地存储的id,与当前文章id,做比较，判断是否已被收藏
     let res = wx.getStorageSync(key_collectionId)
-    if(res != ''){
+    if (res != '') {
       this.setData({
         articalIdArr: res,
       })
       //判断存储的数组中是否包含
-      if(arrayutil.isContainEle(this.data.articalIdArr,this.data.articalId)){
+      if (arrayutil.isContainEle(this.data.articalIdArr, this.data.articalId)) {
         this.setData({
-          isCollected:true,
+          isCollected: true,
         })
-      }else{
+      } else {
         this.setData({
           isCollected: false,
         })
       }
-    }else{
+    } else {
       //创建空数组存储
       wx.setStorageSync(key_collectionId, []);
     }
@@ -125,19 +160,19 @@ Page({
    * 点击复制链接
    */
   copyEvent: function () {
-    if(this.data.urlPath != ''){
+    if (this.data.urlPath != '') {
       wx.setClipboardData({
         data: this.data.urlPath,
       })
-    }else{
+    } else {
       wx.showToast({
         //测试发现设置为error会不正常显示
-        icon:'none',
+        icon: 'none',
         title: '复制失败!',
       })
     }
-    
-  
+
+
   },
   /**
    * 收藏按钮的点击
@@ -149,36 +184,36 @@ Page({
     })
     if (_this.data.isCollected) {
       wxapi.collecteArtical(_this.data.articalId).then(function (res) {
-        if(res.data.errorCode == 0 ){
+        if (res.data.errorCode == 0) {
           _this.data.articalIdArr.push(_this.data.articalId)
-          wx.setStorageSync(key_collectionId,_this.data.articalIdArr);
+          wx.setStorageSync(key_collectionId, _this.data.articalIdArr);
           _this.setData({
             isCollected: true
           })
           wx.showToast({
             title: '收藏成功',
           })
-        }else{
-          app.checkCodeDeal(res.data.errorCode,res.data.errorMsg)
+        } else {
+          app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
         }
       })
     } else {
       wxapi.collecteCancel(_this.data.articalId).then(function (res) {
-        if(res.data.errorCode == 0 ){
-          if(_this.data.articalIdArr.length>0 ){
-            let newArr=  arrayutil.removeArrayEle(_this.data.articalIdArr,_this.data.articalId)
+        if (res.data.errorCode == 0) {
+          if (_this.data.articalIdArr.length > 0) {
+            let newArr = arrayutil.removeArrayEle(_this.data.articalIdArr, _this.data.articalId)
             _this.setData({
               isCollected: false,
-              articalIdArr:newArr
+              articalIdArr: newArr
             })
-          wx.setStorageSync(key_collectionId,_this.data.articalIdArr);
+            wx.setStorageSync(key_collectionId, _this.data.articalIdArr);
           }
-        
+
           wx.showToast({
             title: '取消收藏成功',
           })
-        }else{
-          app.checkCodeDeal(res.data.errorCode,res.data.errorMsg)
+        } else {
+          app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
         }
       })
     }

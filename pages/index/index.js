@@ -58,7 +58,15 @@ Page({
    */
   itemClick: function (e) {
     wx.navigateTo({
-      url: '../webview/webview?type=1&urlPath=' + e.currentTarget.dataset.url + '&title=' + e.currentTarget.dataset.title + '&articalId=' + e.currentTarget.dataset.articalid,
+      url: '../webview/webview?type=1&urlPath=' + e.currentTarget.dataset.url + '&title=' + e.currentTarget.dataset.title + '&articalId=' + e.currentTarget.dataset.articalid
+    })
+  },
+  /**
+   * banner的i的点击
+   */
+  bannerItemClick: function (e) {
+    wx.navigateTo({
+      url: '../webview/webview?type=1&urlPath=' + e.currentTarget.dataset.url + '&title=' + e.currentTarget.dataset.title + '&articalId=' + e.currentTarget.dataset.articalid+'&isShowCollection=false',
     })
   },
   /**

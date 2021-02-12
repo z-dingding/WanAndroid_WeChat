@@ -6,7 +6,7 @@
 <view wx:elif="{{!showWebview}}">
   <rich-text nodes="{{nodes}}"></rich-text>
   <button type="primary" class="common_btn" bindtap="copyEvent">复制链接打开</button>
-  <view class="collection_view">
+  <view class="collection_view" wx:if="{{isShowCollection}}">
     <image bindtap="collectionClick" src="{{!isCollected ? '../../images/collection_nor.png' :'../../images/collection_sel.png'}}" class="collection_img" data-img='{{isCollected}}' data-id="{{item.id}}"></image>
   </view>
 </view>

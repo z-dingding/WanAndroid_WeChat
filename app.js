@@ -41,6 +41,8 @@ App({
   //全局变量的存储区域
   globalData: {
     /**是否已经登录的标识，false没有登录*/
-    isLogin:false
+    isLogin:false,
+    /**阅读历史记录的key */
+    key_readHistory:'readHistory'
   }
 })

@@ -8,7 +8,7 @@
   <swiper wx:if="{{banners.length > 0}}" indicator-dots="true" autoplay="true" circular="true" previous-margin="40rpx"
     next-margin="40rpx">
     <block wx:for="{{banners}}" wx:key="*this">
-      <swiper-item>
+      <swiper-item bindtap="bannerItemClick" data-title='{{item.title}}' data-url='{{item.url}}' data-articalId='{{item.id}}'>
         <image src="{{item.imagePath}}" class="banner_image" mode="widthFix"></image>
       </swiper-item>
     </block>

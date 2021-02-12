@@ -104,12 +104,14 @@ Page({
   itemClick: function (e) {
 
     if(this.data.selTab == 0){
-      //导航
+     //体系
       wx.navigateTo({
         url: '../subsystem/index?title=' + e.target.dataset.title + '&articalId=' + e.target.dataset.articalid,
       })
      
     }else{
+      
+       //导航
       wx.navigateTo({
         url: '../webview/webview?type=1&urlPath=' + e.target.dataset.url + '&title=' + e.target.dataset.title + '&articalId=' + e.target.dataset.articalid,
       })

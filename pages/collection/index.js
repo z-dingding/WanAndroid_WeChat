@@ -107,6 +107,10 @@ Page({
    */
   imgClick:function(e){
     let _this = this;
+    //点击取消收藏要重新请求第一页数据(类似于刷新)
+    _this.setData({
+      pageIndex:0
+    })
     wxApi.collecteCancelList(e.target.dataset.id).then(function (res) {
         if(res.data.errorCode == 0 ){
           _this.collectionList();
@@ -162,6 +166,8 @@ Page({
             //concat返回新数组，不改变原数组
             datas: array.concat(res.data.data.datas),
           })
+             //每次请求就同步本地存储的collectionId
+         _this.syncCollectionId(res.data.data.datas)
         } else {
           app.checkCodeDeal(res.data.errorCode, res.data.errorMsg)
         }

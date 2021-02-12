@@ -17,7 +17,8 @@
     "pages/message/index",
     "pages/richtext/index",
     "pages/collection/index",
-    "pages/feedback/index"
+    "pages/feedback/index",
+    "pages/readhistory/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

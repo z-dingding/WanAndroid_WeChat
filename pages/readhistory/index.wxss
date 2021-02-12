@@ -1,0 +1,41 @@
+/* pages/readhistory/index.wxss */
+.item{
+  color: black;
+  font-size: 32rpx ;
+  padding: 20rpx 30rpx;
+}
+.time{
+  margin-top: 15rpx;
+  color: gray;
+  font-size: 24rpx ;
+}
+.nodata_item{
+  width: 100%;
+  height: 100vh;
+}
+
+.rootview{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+   align-items: center;
+}
+.tipsview{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* 往上移半个tipsview高度（200+24）/2 */
+  margin-top: -112rpx;
+}
+.tipsview_image{
+   width: 200rpx;
+   height: 200rpx;
+}
+
+.tipsview_text{
+  color: red;
+  font-size: 30rpx;
+}
