@@ -42,6 +42,6 @@ function removeArrayEle(array,ele){
      return removeArrayEle(array,ele);
   },
   isContainEleObj:(array,obj)=>{
-    isContainEleObj(array,obj);
+    return isContainEleObj(array,obj);
   }
  }

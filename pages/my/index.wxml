@@ -26,24 +26,28 @@
       <image slot="icon" src="../../images/mine_collection.png"
         style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
     </mp-cell>
-    <mp-cell link hover value="我的分享" data-field="share" bindtap="checkPermission">
-      <image slot="icon" src="../../images/mine_share.png"
+    <mp-cell link hover value="我的todo" data-field="todo" bindtap="checkPermission">
+      <image slot="icon" src="../../images/todo.png"
         style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
     </mp-cell>
     <mp-cell link hover value="阅读历史" data-field="history" bindtap="checkPermission">
       <image slot="icon" src="../../images/mine_readinghistory.png"
         style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
     </mp-cell>
-    <mp-cell link hover value="关于作者" data-field="author" bindtap="checkPermission">
-      <image slot="icon" src="../../images/mine_aboutauthor.png"
+    <mp-cell link hover value="用户反馈" data-field="feedback" bindtap="checkPermission">
+      <image slot="icon" src="../../images/mine_feedback.png"
         style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
     </mp-cell>
     <mp-cell link hover value="系统设置" data-field="setting" bindtap="checkPermission">
       <image slot="icon" src="../../images/mine_setting.png"
         style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
     </mp-cell>
-    <mp-cell link hover value="用户反馈" data-field="feedback" bindtap="checkPermission">
-      <image slot="icon" src="../../images/mine_feedback.png"
+    <mp-cell link hover value="我的分享" data-field="share" bindtap="checkPermission">
+      <image slot="icon" src="../../images/mine_share.png"
+        style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+    </mp-cell>
+    <mp-cell link hover value="关于作者" data-field="author" bindtap="checkPermission">
+      <image slot="icon" src="../../images/mine_aboutauthor.png"
         style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
     </mp-cell>
   </mp-cells>

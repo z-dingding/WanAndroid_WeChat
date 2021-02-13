@@ -127,5 +127,19 @@ loginOut:() =>{
  */
 registerAccount:(account,pwd,surePwd) =>{
   return request('user/register','post',{username:account,password:pwd,repassword:surePwd})
+},
+/**
+ * 新增todo
+ */
+addToDo:(title,content,type) =>{
+  return request('lg/todo/add/json','post',{title:title,content:content,type:type})
+},
+/**
+ * todo列表
+ */
+todoList:(pagenum,status,type,orderby)=>{
+  return request('lg/todo/v2/list/'+pagenum+'/json','post',{status:status,type:type,orderby:orderby})
 }
+
+
 }

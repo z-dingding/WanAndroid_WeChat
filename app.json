@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/todo/index",
+    "pages/todoadd/index",
     "pages/index/index",
     "pages/register/index",
     "pages/login/index",
@@ -19,6 +21,7 @@
     "pages/collection/index",
     "pages/feedback/index",
     "pages/readhistory/index"
+ 
   ],
   "window": {
     "backgroundTextStyle": "light",

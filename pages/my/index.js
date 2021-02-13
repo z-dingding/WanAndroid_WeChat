@@ -127,6 +127,11 @@ Page({
             url: '../collection/index'
           })
           break;
+          case "todo":
+            wx.navigateTo({
+              url: '../todo/index'
+            })
+            break;
           case "history":
             wx.navigateTo({
               url: '../readhistory/index'

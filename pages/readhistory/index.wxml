@@ -1,9 +1,5 @@
 <!--pages/readhistory/index.wxml-->
 <import src="../tipspage/index.wxml"></import>
-
-
-
-
   <view  wx:if="{{datas.length > 0}}">
     <block wx:for="{{datas}}" wx:key="*this">
       <view class="item" bindtap="itemClick" data-title='{{item.title}}' data-url='{{item.urlPath}}' >

@@ -68,9 +68,6 @@ Page({
           title: options.title,
           time: timeutil.formatDate((new Date()).getTime(), 'yyyy-MM-dd hh:mm:ss')
         }
-        //todo 不知为何不能正常接收值
-        let a = arrayutil.isContainEleObj(newArrays, obj);
-        let ba = !arrayutil.isContainEleObj(newArrays, obj)
           //不判断之前是否保存过，直接将记录保存
           newArrays.push(obj)
       } else {

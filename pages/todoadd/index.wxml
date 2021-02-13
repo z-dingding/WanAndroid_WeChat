@@ -1,0 +1,18 @@
+<!--pages/todoadd/index.wxml-->
+<view class="rootview">
+  <view class="type">
+    <picker class="picker" bindchange="pickerClick" value="{{index}}"  range="{{rankArray}}">
+      <view class="view_picker">
+        <text>todo类别：{{rankArray[index]}}</text>
+        <image class="img_right" src="../../images/arrow_right.png" ></image>
+      </view>
+    </picker>
+  </view>
+  <view class="view_todo">
+    <input type="text" class="title" placeholder="请输入标题" bindinput="titleInput"/>
+    <textarea type="text" class="content" placeholder="请输入todo内容" bindinput="contentInput"></textarea>
+  </view>
+  <view class="todo_complete" bindtap="completeClick">
+    <image src="../../images/todo_complete.png" class="img_complete"></image>
+  </view>
+</view>

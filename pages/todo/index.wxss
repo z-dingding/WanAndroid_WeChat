@@ -1,0 +1,66 @@
+/* pages/todo/index.wxss */
+.rootview{
+  width: 100%;
+  height: 100vh;
+}
+.todo_type{
+  height: 80rpx;
+  padding: 0 15rpx;
+}
+.picker{
+  height: 100%;
+}
+.picker_view{
+  display: flex;
+  height: 80rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add_view{
+  background-color: gray;
+  position: fixed;
+  right: 5%;
+  bottom: 10%;
+  padding: 15rpx;
+}
+.add_todo{
+  display: block;
+  width: 60rpx;
+  height: 60rpx;
+  margin: auto;
+}
+.todolist{
+  padding-right: 15rpx;
+  padding: 0 15rpx;
+}
+.item{
+  display: flex;
+  flex-direction: column;
+ width: 100%;
+  color: gray;
+  font-size: 26rpx;
+}
+.item_top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.status{
+  border: 2rpx solid #07C160;
+  border-radius: 10px;
+  padding: 5rpx 15rpx;
+}
+.item_center{
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+.title{
+  color: black;
+  font-size: 32rpx;
+  margin-bottom: 5rpx;
+}
+.item_bottom{
+  margin-top: 10rpx;
+}

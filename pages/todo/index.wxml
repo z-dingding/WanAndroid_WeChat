@@ -1,0 +1,37 @@
+<!--pages/todo/index.wxml-->
+<view class="rootview">
+  <!-- todo类别 -->
+<view class="todo_type">
+  <picker class="picker" mode="selector" range="{{rangeArray}}" value="{{defaultIndex}}" bindchange="typeBindEvent">
+    <view class="picker_view"> 
+      <text>todo类别：{{rangeArray[defaultIndex]}}</text>
+      <image src="../../images/arrow_right.png"
+        style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+    </view>
+  </picker>
+</view>
+<view class="todolist" wx:if="{{todolist.length > 0}}">
+  <block wx:for="{{todolist}}" wx:key="*this">
+   <view class="item">
+  <view class="item_top">
+    <text class="status">{{item.status == 0 ? '未完成':'已完成'}}</text>
+    <text>{{item.dateStr}}</text>
+  </view>
+  <view class="item_center">
+    <text class="title">{{item.title}}</text>
+    <text class="content">{{item.content}}</text>
+  </view>
+  <view class="item_bottom">
+    <text wx:if="{{item.type == 1}}">工作</text>
+    <text wx:elif="{{item.type == 2}}">生活</text>
+    <text wx:elif="{{item.type == 3}}">娱乐</text>
+  </view>
+
+   </view>
+  </block>
+</view>
+<!-- 增加按钮 -->
+<view class="add_view" bindtap="addClick">
+  <image class="add_todo" src="../../images/todo_add.png" mode="aspectFit"></image>
+</view>
+</view>
