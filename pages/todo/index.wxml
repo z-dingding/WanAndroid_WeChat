@@ -2,19 +2,29 @@
 <view class="rootview">
   <!-- todo类别 -->
 <view class="todo_type">
-  <picker class="picker" mode="selector" range="{{rangeArray}}" value="{{defaultIndex}}" bindchange="typeBindEvent">
+  <picker class="picker" mode="selector" range="{{rangeArray}}" value="{{type}}" bindchange="typeBindEvent">
     <view class="picker_view"> 
-      <text>todo类别：{{rangeArray[defaultIndex]}}</text>
+      <text>todo类别：{{rangeArray[type]}}</text>
       <image src="../../images/arrow_right.png"
         style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
     </view>
   </picker>
 </view>
+<!-- 状态类别 -->
+  <view class="picker_status">
+    <picker class="picker" bindchange="pickerStatusClick" value="{{statusIndex}}"  range="{{statusArray}}" range-key="desc">
+      <view class="picker_view">
+        <text>状态：{{statusArray[statusIndex].desc}}</text>
+        <image  src="../../images/arrow_right.png"   style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+      </view>
+    </picker>
+  </view>
+  <!-- 内容列表 -->
 <view class="todolist" wx:if="{{todolist.length > 0}}">
   <block wx:for="{{todolist}}" wx:key="*this">
-   <view class="item">
+   <view class="item" bindtap="itemClick" data-obj="{{item}}">
   <view class="item_top">
-    <text class="status">{{item.status == 0 ? '未完成':'已完成'}}</text>
+    <text class="status" catchtap="completeClick" data-index="{{index}}" data-obj="{{item}}">{{item.status == 0 ? '未完成':'已完成'}}</text>
     <text>{{item.dateStr}}</text>
   </view>
   <view class="item_center">

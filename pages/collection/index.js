@@ -15,9 +15,9 @@ Page({
     //页码从0开始
     pageIndex:0,
     //当前第几页
-    curPage:'',
+    curPage:0,
     //总页数
-    pageCount:'',
+    pageCount:1,
    //收藏列表数据源
     datas:[]
   },

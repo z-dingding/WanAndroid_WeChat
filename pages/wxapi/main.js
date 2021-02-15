@@ -139,7 +139,18 @@ addToDo:(title,content,type) =>{
  */
 todoList:(pagenum,status,type,orderby)=>{
   return request('lg/todo/v2/list/'+pagenum+'/json','post',{status:status,type:type,orderby:orderby})
+},
+/**
+ * 仅更新todo完成状态
+ */
+updateTodoStatus:(id,status)=>{
+  return request('lg/todo/done/'+id+'/json','post',{status:status})
+},
+/**
+ * 更新todo
+ */
+updateTodo:(id,title,content,date,status,type)=>{
+  return request('lg/todo/update/'+id+'/json','post',{title:title,content:content,date:date,status:status,type:type})
 }
-
 
 }

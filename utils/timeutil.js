@@ -32,5 +32,8 @@ function formatDateCommon(v, format) {
 module.exports = {
   formatDate:(timeStamp,format)=>{
   return formatDateCommon(timeStamp,format);
+  },
+  getTimeStamp:function(){
+   return Date.parse(new Date());
   }
 }

@@ -8,9 +8,12 @@
       </view>
     </picker>
   </view>
+
   <view class="view_todo">
-    <input type="text" class="title" placeholder="请输入标题" bindinput="titleInput"/>
-    <textarea type="text" class="content" placeholder="请输入todo内容" bindinput="contentInput"></textarea>
+    <input type="text" class="title" placeholder="请输入标题" bindinput="titleInput" 
+    value="{{ isUpdate == true ? obj.title : ''}}"/>
+    <textarea type="text" class="content" placeholder="请输入todo内容" bindinput="contentInput"
+    value="{{ isUpdate == true ? obj.content : ''}}"></textarea>
   </view>
   <view class="todo_complete" bindtap="completeClick">
     <image src="../../images/todo_complete.png" class="img_complete"></image>
