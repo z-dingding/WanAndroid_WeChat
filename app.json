@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/todo/index",
     "pages/todoadd/index",
-    "pages/index/index",
     "pages/register/index",
     "pages/login/index",
     "pages/setting/index",
