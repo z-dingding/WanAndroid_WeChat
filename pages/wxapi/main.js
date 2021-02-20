@@ -151,6 +151,18 @@ updateTodoStatus:(id,status)=>{
  */
 updateTodo:(id,title,content,date,status,type)=>{
   return request('lg/todo/update/'+id+'/json','post',{title:title,content:content,date:date,status:status,type:type})
+},
+/**
+ * 获取公众号列表
+ */
+getPublicAccount(){
+  return request('wxarticle/chapters/json ','get',{})
+},
+/**
+ * 获取公众号内容列表
+ */
+getPublicArticalList(id,pageIndex){
+return request('wxarticle/list/'+id+'/'+pageIndex+'/json','get',{});
 }
 
 }

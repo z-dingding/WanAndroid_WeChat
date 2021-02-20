@@ -1,17 +1,18 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/answer/index",
+    "pages/system/index",
+    "pages/publicaccount/index",
+    "pages/my/index",
     "pages/todo/index",
     "pages/todoadd/index",
     "pages/register/index",
     "pages/login/index",
     "pages/setting/index",
-    "pages/my/index",
-    "pages/system/index",
     "pages/subsystem/index",
     "pages/homesearch/homesearch",
     "pages/webview/webview",
-    "pages/answer/index",
     "pages/testdemo/index",
     "pages/integral/integral",
     "pages/ranking/ranking",
@@ -21,7 +22,6 @@
     "pages/collection/index",
     "pages/feedback/index",
     "pages/readhistory/index"
- 
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -58,6 +58,12 @@
         "iconPath": "/images/nav/nav_system_default.png",
         "selectedIconPath": "/images/nav/nav_system_active.png",
         "text": "体系"
+      },
+      {
+        "pagePath": "pages/publicaccount/index",
+        "iconPath": "/images/nav/nav_public_default.png",
+        "selectedIconPath": "/images/nav/nav_public_active.png",
+        "text": "公众号"
       },
       {
         "pagePath": "pages/my/index",

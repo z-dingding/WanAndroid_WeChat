@@ -1,0 +1,69 @@
+/* pages/publicaccount/index.wxss */
+.content{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+}
+.left{
+ width: 200rpx;
+ height: 100%;
+ flex-shrink: 0;
+}
+.right{
+  width: 550rpx;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.publicaccount{
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5rpx;
+  text-align: center;
+  background-color: #e6e6e6;
+}
+.publicaccount-active{
+  background-color:white ;
+}
+
+.publicaccount_name_right {
+  margin-left: 20rpx;
+  margin-bottom: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1rpx solid #cdcdcd;
+  color: #07C160;
+}
+
+.publicaccount_artical_right{
+  /* 设置子元素display: flex;再设置其width为100%则是相对父元素的宽度100%，自己的宽度会是padding+100% */
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  margin-left: 20rpx;
+  align-items:flex-start ;
+  justify-content:center ;
+  /* border-bottom: 1rpx solid #cdcdcd; */
+ 
+}
+.publicaccount_artical_title{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  /* 相对父元素100%，也就是占满剩余父元素空间，不包括padding*/
+  width: 100%;
+}
+.publicaccount_artical_other{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items:center ;
+  justify-content:space-between ;
+}
