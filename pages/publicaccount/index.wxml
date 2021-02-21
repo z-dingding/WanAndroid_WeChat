@@ -2,21 +2,22 @@
 <view class="content">
   <scroll-view scroll-y="true" class="left" scroll-into-view="{{publicNameToView}}">
     <block wx:for="{{publicDatas}}" wx:key="id">
-      <view class="publicaccount {{publicAccountSel == item.scrollId ? 'publicaccount-active' : ''}}"
+      <view class=" publicaccount {{publicAccountSel == item.scrollId ? 'publicaccount-active' : ''}}"
         bindtap="leftItemClick" data-id="{{item.scrollId}}">
         <text class="publicaccount_name">{{item.name}}</text>
       </view>
     </block>
   </scroll-view>
-  <scroll-view scroll-y="true" class="right" scroll-into-view="{{contentToView}}" bindscroll="scroll">
+  <!-- bindscroll="scroll" -->
+  <scroll-view scroll-y="true" class="right" scroll-into-view="{{contentToView}}" bindscroll="scroll" >
    <!-- 注意此处的wx:key="id"不能是wx:key="*this"会重复 -->
-    <block wx:if="{{item.children.length > 0}}" wx:for="{{publicDatas}}" wx:key="id">
+    <block wx:if="{{item.children.length > 0}}" wx:for="{{publicDatas}}" >
       <!-- 公众号名称 -->
       <view class="publicaccount_name_right" >
         <text>{{item.name}}</text>
       </view>
       <!-- 公众号对应的文章列表 -->
-      <block wx:for="{{item.children}}" wx:for-item="child" wx:for-index="childIndex" wx:key="id" >
+      <block wx:for="{{item.children}}" wx:for-item="child" wx:for-index="childIndex" wx:key="chapterId" >
       <!-- 太多数据放不下且效果不美观，所以暂定展示两条 -->
         <view class="publicaccount_artical_right" wx:if="{{childIndex < 2}}" bindtap="itemClick" data-title='{{child.title}}' data-url='{{child.link}}' data-articalId='{{child.id}}'>
           <!-- 此处的id好像没有实际意思 -->

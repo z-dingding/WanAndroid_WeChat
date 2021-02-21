@@ -102,7 +102,6 @@ Page({
   leftItemClick:function(e){
     //自己定义的scrollId
     let id = e.currentTarget.dataset.id;
-
    this.setData({
     publicAccountSel:id,
     contentToView:id,
@@ -111,16 +110,17 @@ Page({
   /**
    * 请求公众号对应的文章列表详情(只请求第一页展示)
    */
-  async publicAccountArticall(datas){
+  async publicAccountArticall(dataArry){
     //注意forEach 增加async
-    datas.forEach( async (item,index) => {
+    dataArry.forEach( async (item,index) => {
       //await返回的不是promise,而是obj
       let response = await wxapi.getPublicArticalList(item.id,1);
       if (response.data.errorCode == 0) {
         const datas = this.data.publicDatas;
-        datas[index].children = response.data.data.datas;
-        //最后一个请求返回
-        if(index == datas.length-1){
+        datas[index].children = response.data.data.datas; 
+        //最后一个请求返回(判断标准是都有值)
+        if(this.hasChildren(datas)){
+          console.log(datas)
             this.setData({
               publicDatas:datas
             })
@@ -135,22 +135,20 @@ Page({
    * data-xxx小写获取
    */
   itemClick: function (e) {
+  
     wx.navigateTo({
       url: '../webview/webview?type=1&urlPath=' + e.currentTarget.dataset.url + '&title=' + e.currentTarget.dataset.title + '&articalId=' + e.currentTarget.dataset.articalid
     })
   },
   scroll: function(e) {
-  
    //距离顶部的距离
     let scrollTop = e.detail.scrollTop;
-   
- 
+
     let offset = 0;
     let isBreak = false;
     for (let g = 0; g < this.data.publicDatas.length; g++) {
       let child = this.data.publicDatas[g];
-
-      offset += 30;
+      offset += 64;
       if (scrollTop <= offset) {
         if (this.data.publicNameToView != child.scrollId) {
           this.setData({
@@ -163,9 +161,7 @@ Page({
 
      //注意，我们每个公众号只展示了两个item
       for (let i = 0; i < 2; i++) {
-
-        offset += 30;
-
+        offset += 50;
         if (scrollTop <= offset) {
 
           if (this.data.publicNameToView != child.scrollId) {
@@ -174,21 +170,41 @@ Page({
               publicNameToView: child.scrollId,
             })
           }
-
           isBreak = true;
           break;
         }
       }
-
       if (isBreak){
         break;
       }
-
-
     }
-
-  
+  },
+/**
+ * 判断array中的children长度都大于0
+ */
+hasChildren(array){
+  let bol =true;
+  for(let i =0;i<array.length;i++){
+    if(array[i].children.length == 0){
+      bol =false;
+    }
   }
+  return bol;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
