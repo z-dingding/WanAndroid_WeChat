@@ -98,7 +98,9 @@ Page({
             version = '体验版';
             break
           case 'release':
-            version = accountInfo.version;
+            if(accountInfo.version != null){
+              version = accountInfo.version ;
+            }
             break
         }
         return version;
