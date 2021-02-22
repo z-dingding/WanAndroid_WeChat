@@ -98,8 +98,8 @@ Page({
             version = '体验版';
             break
           case 'release':
-            if(accountInfo.version != null){
-              version = accountInfo.version ;
+            if(accountInfo.miniProgram.version != null && accountInfo.miniProgram.version != ''){
+               version=accountInfo.miniProgram.version
             }
             break
         }
